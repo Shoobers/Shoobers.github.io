@@ -40,7 +40,7 @@
 		
 					const selectedFile = document.getElementById('BaseSRW').files[0];
 					let reader = new FileReader();
-					
+					alert(crcCheck)
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
