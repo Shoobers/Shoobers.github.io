@@ -45,7 +45,7 @@
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
-						message: crcCheck;
+						
 /*						if (crcCheck === 1683224158) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'EU';
@@ -54,8 +54,8 @@
 							app.romType = 'JP';
 						} else {
 						app.correctFileCRCcheck = false;
-						}
-					reader.abort();*/
+						}*/
+					reader.abort();
 				};
 			reader.readAsBinaryString(selectedFile);
 			},
