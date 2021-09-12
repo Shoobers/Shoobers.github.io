@@ -2,6 +2,11 @@
 
 <html>
 
+    <script>
+      var crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a=1&a?3988292384^a>>>1:a>>>1;o[c]=a}for(var n=-1,t=0;t<r.length;t++)n=n>>>8^o[255&(n^r.charCodeAt(t))];return(-1^n)>>>0};
+    </script>
+    <script src="seedrandom.js"></script>
+    <script src="vue_2_6_12.js"></script>
 	<head>
 		<meta charset="utf-8">
 		<title>Super Robot Wars 3 Randomizer</title>
@@ -11,9 +16,77 @@
 		<h1>This is where I intend to create the gui for the randomizer</h1>
 		<br>
 		<label for="BaseSRW">Your local copy of the translated SRW3 rom file:</label>
-		<input type="file" id="BaseSRW" name="BaseSRW">	
+		<input type="file" id="BaseSRW" name="BaseSRW" onchange="fileChange()">	
 		just some random text
+		
+		
 	</body>
+	<script>
+		let app = new Vue({
+		el: '#app',
+			data: {
+				correctFileCRCcheck: null,
+				randomized: false,
+				randomized_rom: null,
+				showing_spoilers: false,
+				romType: 'EU',
+				seed: "",
+				staticVariables: {
+				}
+			}
+		},
+		methods: {
+			fileChange: function() {
+				app.correctFileCRCcheck = null;
+		
+					const selectedFile = document.getElementById('BaseSRW').files[0];
+					let reader = new FileReader();
+					
+					// crc check
+					reader.onload = function() {
+						let crcCheck = crc32(reader.result);
+						if (crcCheck === 1683224158) {
+							app.correctFileCRCcheck = true;
+							app.romType = 'EU';
+						} else if (crcCheck === 705919348) {
+							app.correctFileCRCcheck = true;
+							app.romType = 'JP';
+						} else {
+						app.correctFileCRCcheck = false;
+						}
+					reader.abort();
+				};
+			reader.readAsBinaryString(selectedFile);
+			},
+			randomizeRom: function() {
+				// use seed if provided, or gen one
+				let myrng;
+				if (app.seed === '') {
+					app.seed = +(new Date()); 
+				}
+				myrng = new Math.seedrandom(app.seed);
+			
+				const selectedFile = document.getElementById('BaseSRW').files[0];
+				let reader = new FileReader();
+				app.randomized = false;
+				app.showing_spoilers = false;
+
+				// file processing
+				reader.onload = function() {
+					let view = new Uint8Array(reader.result);
+					let return_val = randomize(view, myrng, {romType: app.romType});
+
+/*					app.spheres = return_val[0];
+					app.unobtainable = return_val[1];
+					app.randomized_rom = return_val[2];    */
+					app.randomized = true;
+
+					reader.abort();
+				}
+			reader.readAsArrayBuffer(selectedFile);
+			},
+		}
+	</script>
 
 
 </html>
