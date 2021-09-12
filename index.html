@@ -24,16 +24,16 @@
 	<script>
 		let app = new Vue({
 		el: '#app',
-			data: {
-				correctFileCRCcheck: null,
-				randomized: false,
-				randomized_rom: null,
-				showing_spoilers: false,
-				romType: 'EU',
-				seed: "",
-				staticVariables: {
-				}
-			},
+		data: {
+			correctFileCRCcheck: null,
+			randomized: false,
+			randomized_rom: null,
+			showing_spoilers: false,
+			romType: 'EU',
+			seed: "",
+			staticVariables: {
+			}
+		},
 		
 		methods: {
 			fileChange: function() {
@@ -87,6 +87,7 @@
 			reader.readAsArrayBuffer(selectedFile);
 			},
 		}
+	}
 	</script>
 
 	</body>
