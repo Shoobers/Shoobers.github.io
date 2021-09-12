@@ -45,7 +45,8 @@
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
-						alert(crcCheck);
+						let message = crcCheck;
+						alert(message);
 /*						if (crcCheck === 1683224158) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'EU';
@@ -78,8 +79,8 @@
 					let return_val = randomize(view, myrng, {romType: app.romType});
 
 /*					app.spheres = return_val[0];
-					app.unobtainable = return_val[1];
-					app.randomized_rom = return_val[2];    */
+					app.unobtainable = return_val[1]; */
+					app.randomized_rom = return_val[2];    
 					app.randomized = true;
 
 					reader.abort();
