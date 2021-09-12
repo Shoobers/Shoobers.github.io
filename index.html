@@ -44,7 +44,7 @@
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
-						
+						document.write(crcCheck);
 /*						if (crcCheck === 1683224158) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'EU';
