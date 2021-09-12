@@ -17,7 +17,7 @@
 		<br>
 		<label for="BaseSRW">Your local copy of the translated SRW3 rom file:</label>
 		<input type="file" id="BaseSRW" name="BaseSRW" v-onchange="fileChange()">	
-		<button>CRC</button>
+		
 		
 		
 	</body>
@@ -45,6 +45,7 @@
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
+						message: crcCheck;
 /*						if (crcCheck === 1683224158) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'EU';
