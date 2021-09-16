@@ -18,7 +18,21 @@
 		<br>
 		<label for="BaseSRW">Your local copy of the translated SRW3 rom file:</label>
 		<input type="file" id="BaseSRW" name="BaseSRW" v-on:change="fileChange()">	
-	
+		
+		
+        <div class="field">
+          <label class="label">Seed</label>
+          <div class="control">
+            <input class="input" type="text" v-model="seed" style="width:30%">
+          </div>
+        </div>
+
+
+        <div class="btn-margin">
+          <button class="button" :disabled="correctFileCRCcheck!==true" v-on:click="randomizeRom()">Randomize</button>
+        </div>
+		
+		
 		</section>
 		
 	<script>
@@ -45,18 +59,29 @@
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
 						alert(crcCheck);
-/*						if (crcCheck === 1683224158) {
+						if (crcCheck === 2755626416) {
 							app.correctFileCRCcheck = true;
-							app.romType = 'EU';
-						} else if (crcCheck === 705919348) {
+							app.romType = 'SRW32.0M';
+							alert("Super Robot Wars 3 translation by Aeon Genesis 2.0 with Music adjusted");
+						} else if (crcCheck === 2235440940) {
 							app.correctFileCRCcheck = true;
-							app.romType = 'JP';
+							app.romType = 'SRW32.0';
+							alert("Super Robot Wars 3 translation by Aeon Genesis 2.0");
+						} else if (crcCheck === 2282947228) {
+							app.correctFileCRCcheck = true;
+							app.romType = 'SRW3Base';
+							alert("Super Robot Wars 3 Japanese");
+						} else if (crcCheck === 2157445912) {
+							app.correctFileCRCcheck = true;
+							app.romType = 'SRW31.0';
+							alert("This is the outdated 1.0 translation by Aeon Genesis")
 						} else {
-						app.correctFileCRCcheck = false;
-						}*/
+							app.correctFileCRCcheck = false;
+							alert("You have selected an unrecognized Super Robot Wars 3 rom or a file that is not applicable to this Randomizer")
+						}
 					reader.abort();
 				};
-			reader.readAsBinaryString(selectedFile);
+				reader.readAsBinaryString(selectedFile);
 			},
 			randomizeRom: function() {
 				// use seed if provided, or gen one
