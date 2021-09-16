@@ -7,6 +7,7 @@
     </script>
     <script src="seedrandom.js"></script>
     <script src="vue_2_6_12.js"></script>
+	<script src="SWR3Rando.js"></script>
 	<head>
 		<meta charset="utf-8">
 		<title>Super Robot Wars 3 Randomizer</title>
@@ -31,7 +32,21 @@
         <div class="btn-margin">
           <button class="button" :disabled="correctFileCRCcheck!==true" v-on:click="randomizeRom()">Randomize</button>
         </div>
-		
+        <div>
+          <span v-if="correctFileCRCcheck===true" style="color:green">
+            Valid ROM
+          </span>
+          <span v-if="correctFileCRCcheck===false" style="color:red">
+            Invalid ROM
+          </span>
+        </div>
+		<div class="btn-margin">
+			<a class="button" :disabled="randomized===false" :download="fname" :href="createBlobURL">Download Randomized ROM</a>
+				<button class="button" :disabled="randomized===false" v-on:click="toggleSpoilers()">
+					<span v-if="showing_spoilers">Hide Spoiler Log</span>
+					<span v-if="!showing_spoilers">Show Spoiler Log</span>
+				</button>
+		</div>
 		
 		</section>
 		
@@ -46,6 +61,9 @@
 			romType: 'EU',
 			seed: "",
 			staticVariables: {
+				'scenarioOnePilots': 'First Scenario Pilots',
+				'scenarioOneRobots': 'First Scenario Robots',
+				'noAmuroChar': 'Do not randomize Char/Amuro'
 			}
 		},
 		
@@ -58,7 +76,6 @@
 					// crc check
 					reader.onload = function() {
 						let crcCheck = crc32(reader.result);
-						alert(crcCheck);
 						if (crcCheck === 2755626416) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'SRW32.0M';
@@ -69,7 +86,7 @@
 							alert("Super Robot Wars 3 translation by Aeon Genesis 2.0");
 						} else if (crcCheck === 2282947228) {
 							app.correctFileCRCcheck = true;
-							app.romType = 'SRW3Base';
+							app.romType = 'SRW3JP';
 							alert("Super Robot Wars 3 Japanese");
 						} else if (crcCheck === 2157445912) {
 							app.correctFileCRCcheck = true;
@@ -110,6 +127,37 @@
 				}
 			reader.readAsArrayBuffer(selectedFile);
 			},
+/*			getRowClass: function(loc_item) {
+				if (loc_item[1].includes('Key'))
+					return 'tr-green';
+				if (loc_item[1] === 'freeon' || loc_item[1] === 'suction' || loc_item[1] === 'gil')
+					return 'tr-yellow';
+				return '';
+			},*/
+/*			orderedLocItems: function(loc_items) {
+				return loc_items.sort((a, b) => (a[0] > b[1]) ? 1: -1)
+			}*/
+		},			
+		computed: {
+			createBlobURL: function() {
+			if (!this.randomized) return '';
+				let blob = new Blob([app.randomized_rom], {
+					type: 'application/octet-stream'
+				});
+			return window.URL.createObjectURL(blob);
+			},
+			fname: function() {
+				let dt = new Date();
+				if( app.romType === 'SRW32.0M') {
+					return `SRW3M-${dt.toJSON()}.sfc`;
+				} else if (app.romType === 'SRW32.0') {
+					return `SRW3M-${dt.toJSON()}.sfc`;
+				} else if ( app.romType = 'SRW31.0') {
+					return `SRW3-${dt.toJSON()}.sfc`;
+				} else {
+					return `SRW3JP-${dt.toJSON()}.sfc`;
+				}
+			}
 		}
 	})
 

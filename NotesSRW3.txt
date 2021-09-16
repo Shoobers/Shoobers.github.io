@@ -1,0 +1,651 @@
+020200 to 0203f0 working values  - pulled from another location
+These are level, possibly character number, mech hp/max hp mostly for viewing purposes.
+These also contain the stage # and the credits if you do a basic menu.  Strategic map.
+Also does cost of spirits.  
+99% certain this is the section that gets written to for ANY numbers
+
+020400 to 0204f0 is something to do with menus likely
+
+above is basically working ram
+
+
+0202e70 bytes 3 to 7 are cursor position, but written into and not active
+
+
+
+
+
+
+
+S-CPU bus
+0000a2 pulls turn counter?
+0001d0 to 0001ef Unsure what these are, think they're pointers of some variety.
+000200 to 0003ff calls and stores various stats about mech and pilot NOT edittable
+000400 to 0004ff saves current switch positions?
+000500 to 0006ff I believe has to do with a menu state?  map constantly being redrawn in various 		aspects?  This seems to be CONSTANTLY written to.
+000800 relates to the graphics of the mech on pilot screen, including what palette to call
+000900 grid positions for the pointer - 900 is actual realtime movement 902 is grid position 		after movement 901 and 903 get used if beyond 16  01-0f is subgrid positions used 		for 900 so that it looks like the pointer is moving and not static
+
+
+
+000c80 is player map sprites - c80 for some reason refers to substats and graphics for first 		unit, c81 is shading / color / faction - I believe these are static to the 				scenario likely in the sprite templates?
+000cb0 refers to enemy ones.
+000e00 stores menu type kind of information
+000d00 starts player unit horizontal positions, first number is grid, second is sub grid GRAPHIC 		ONLY
+000d30 starts enemy unit horizontal positions, first number is grid, second is sub grid GRAPHIC 		ONLY
+000d80 starts player unit vertical positions, first number is grid, second is sub grid GRAPHIC 				ONLY
+000db0 starts enemy unit vertical positions, first number is grid, second is sub grid GRAPHIC 				ONLY
+000e00 menu and map states, including menu position, camera position, grid limits, and which 				menus to call it feels like.  e00 is what menu to pull e01 refers to which 				template to switch to? 00e3A is menu position regardless of menu.  00ea7 is 				aparently very important for scene transitions.  E20 references color of new 				text?  E01 ?
+000f00 battle and timing things?.  f00 is horizontal movement, f01 is vertical movement.  They're 		also used as a timer in nonbattle  f02-5 are dangerous and unsure what they refer 		to without knowing all the things that can be put in here safely.
+000f10 points to background textures  000f12 is texture effects ( transparancy ) / graphics?
+000f20 pointers ?  For text calls I believe.  Also contains timers for different texture effects.
+000f30 seems to be specifically for timing a robot's death.
+001000 stats like turn count and money
+001008-1010 is current credit count
+0010ed starts pilot level in hanger, not map, this value is used when the pilot levels on map and 		is the more important one.
+00116D starts player pilot exp, used everywhere and important for level randomization for the 		player when its time.
+0011ee starts player mechs IN HANGER ONLY
+
+
+001300 states what a particular unit can attack?
+001406 starts player "AI" will almost always be empty
+001436 starts enemy AI
+001486 starts player's "war with" faction?  Causes wonk - You can choose to target your forces 		with that said unit, said unit WILL NOT be able to be attacked.
+0014b6 starts enemy "war with" faction?  causes them to hit themselves.
+
+001506 starts player mech another graphic position *** May need another location updated!!
+001536 starts enemy mech another graphic position *** May need another location updated!!
+001586 starts player pilot and it's level that is seen on map, but does not affect stats, does 				affect exp earned
+0015b6 starts currently active enemy pilot and their level which doesn't matter - stats do not 		get adjusted
+
+
+001606 starts player mech piloted and its Will in map   
+001636 starts enemy mech piloted and its Will in map    
+001686 starts player spirit current/max
+0016b6 starts enemy spirit current/max ** never uses
+001706 starts player move values and how the mech moves in general
+001736 starts enemy mech movement values
+001786 starts player energy cur / max   
+0017b6 starts enemy energy cur / max    
+001806 starts player current health   NOTE: FIRST NUMBER IS SMALLER THAN LATTER NUMBER.  MULTIPLY LATTER # BY 256 ADD TO FIRST VALUE
+001836 starts enemy current health    NOTE: FIRST NUMBER IS SMALLER THAN LATTER NUMBER.  MULTIPLY LATTER # BY 256 ADD TO FIRST VALUE
+001886 starts player max health   NOTE: FIRST NUMBER IS SMALLER THAN LATTER NUMBER.  MULTIPLY LATTER # BY 16 ADD TO FIRST VALUE
+0018b6 starts enemy max health   NOTE: FIRST NUMBER IS SMALLER THAN LATTER NUMBER.  MULTIPLY LATTER # BY 16 ADD TO FIRST VALUE
+001906 starts player intuition
+001936 starts enemy intuition
+001986 starts player aim and control
+0019b6 starts enemy aim and control
+001a06 starts player reaction and power ( power is x10 from value )
+001a36 starts enemy reaction and power
+001a86 starts player armor and limit ( ceiling for all stats )
+001ab6 starts enemy armor and limit
+001b00 - 001cff unsure, but they are used on the scenario map and may have something to do in regards to menus.
+
+ROM
+b432/3 seems to refer to a background layer index?
+
+0682xx seems to be mostly relating to Scenarios and MS positioning/type/etc.
+
+068260 is grid value, x then y of first enemy pilot in scenario 1
+068262 when changed from 38 to 39 made Char become Lalah - Any time Char loaded on map, Londo Bell was referred to.  Amuro can't talk to the new pilot who changed from char in Scenario 1.  Will need to update another time.
+068264 is mech
+068265 is when this unit/pilot becomes active for AI purposes
+068267 x# is color of mech   #x is team of mech
+66 unsure of what bytes mean yet.
+
+
+This continues down to
+
+
+0682d8 in a similar format
+
+0682e0 has 4 bytes of FF for some reason, then it starts player?  * Changes these does WEIRD things to player locations and data.
+
+068310 unsure why these are FFs, probably a way to tell the code loading it to break so it can load he next important data, see below
+068312/3 is player MS 1 horizontal/vertical position
+
+068316 if changed makes Amuro disapear?  Or adjust to whoever the pilot is corresponding to in this byte?  
+
+07ba8d unsure why this is 00
+
+07ba8e is where reinforcements are called from for scenario 1
+
+
+
+
+c0b432 breaks everyone's status screen.  Likely has to do with color sor something along those lines in this area.  Changing b434 to 89 made hp bar full red
+
+
+
+
+
+Mech list
+00 Not used
+01 Combattler V with all attacks?
+02 Battle Jet Combattler 
+03 Battle crasher Combattler
+04 Battle Tank Combattler
+05 Battle Marine Combattler
+06 Battle craft Combattler
+07 P Getter Robo ? These two are different mechs?  For hanger I guess?
+08 P Getter 1 ? These are different somehow?
+09 P Getter 2
+0a P Getter 3
+0b Jamru Fin ( "Normal" )
+0c Jamru Fin ( "Fast" ) Why two?  I don't think the AI uses both )
+0d Zaku ( Brown/Garma )
+0e Getter Robo ( For hanger? )
+0f Getter 1
+10 Getter 2
+11 Getter 3
+12 Zeong? full
+13 Zeong? head
+14 Zen II
+15 Getter Robo G
+16 Getter Dragon
+17 Getter Liger
+18 Getter Poseidon
+19 Mecha Kochoki
+1a Mecha Tekkoki
+1b Valsion ( This does not look like Ryune )
+1c Grendizer
+1d Spazer
+1e Double Spazer
+1f Marine Spazer
+20 Drill Spazer
+21 Grendizer Flying/space?
+22 Grendizer Diving?
+23 Grendizer drills?
+24 Mazinger Z
+25 Mazinger Z ( Wing )
+26 Great Mazinger
+27 Gundam
+28 Nu Gundam
+29 Z Gundam
+2a Wave Rider ( Zeta )
+2b ZZ Gundam
+2c G-Fortress ( ZZ )
+2d F-91
+2e Raideen
+2f God Bird ** DOES NOT FUNCTION FOR MAP USE ** DO NOT USE FOR RANDO PERIOD
+30 Daitarn 3
+31 Daifighter
+32 Daitank
+33 Cybuster
+34 Cybird
+35 Granzon
+36 Valsione
+37 Texas Mack
+38 Getter Q
+39 Boss Borot
+3a Aphrodite A
+3b Diana A
+3c Venus A
+3d Bluegar
+3e Alex
+3f Gundam Mk-II
+40 Super Gundam ** Can be janky if you detach and it didn't combine!  Warning!!!!
+41 Hyaku Shiki
+42 GP-01
+43 GP-01fb
+44 Guncannon
+45 Methuss MS
+46 Methuss Plane
+47 Rick Dias
+48 Nemo
+49 Jegan
+4a Re-GZ ( Plane )
+4b Re-GZ ( MS )
+4c GP-03 Orchis
+4d GP-03 Stamen
+4e Zaku (Green ?Early?)
+4f Zaku (Red/Char?)
+50 Gouf
+51 Dom
+52 Z'Gok-E
+53 Hygogg
+54 Gyan
+55 Big Zam
+56 Gelgoog ( weak/teal )
+57 Gelgoog J ( red )
+58 Gelgoog M ( green/blue )
+59 Gelgoog M ( orange/yellow Stronger/ Varied )
+5a Gelgoog ( red )
+5b Elmeth
+5c Jaraga
+5d Marasai
+5e Asshimar MS
+5f Asshimar Air
+60 Byarlant
+61 Gaplant MS
+62 Gaplant Plane
+63 Gabthley MS
+64 Gabthley Airship
+65 Hambrabi Land
+66 Hambrabi Air
+67 Messala
+68 Messala Plan
+69 Palace Athene
+6a Baund Doc MS
+6b Baund Doc Airship 
+6c The-0 (boss)
+6d Qubeley
+6e Qubeley Mk-II
+6f Psyco Gundam MS
+70 Psyco Gundam Ship
+71 Psyco Gundam Mk-II MS
+72 Psyco Gundam Mk-II Ship
+73 GM
+74 Zssa
+75 Dreissen
+76 Capule
+77 Bawoo MS Green
+78 Bawoo Air Green
+79 Bawoo MS Red
+7a Bawoo Air Red
+7b Zaku III
+7c Zaku III Custom
+7d Doven Wolf
+7e Geymalk
+7f Queen Mansa
+80 Geara Doga Green
+81 Geara Doga Blue 
+82 Jagd Doga Green
+83 Jagd Doga Orange
+84 Jagd Doga Red
+85 Sazabi
+86 nu Azieru
+87 Dra-C
+88 Neue Ziel
+89 Gerbera Tetra
+8a Kampfer
+8b Dahgi Iris
+8c Berga Giros
+8d Vigna Ghina
+8e Raffleisia
+8f GP-02
+90 Garada K7
+91 Doublas M2
+92 Rhine X1
+93 Jenova M9
+94 Spartan K5
+95 Minerva X
+96 Glossam X2
+97 Abdora U6
+98 Gt General of Darkness
+99 Zai
+9a Zuu
+9b bado
+9c Saki
+9d Shigu
+9e Dai
+9f Dorome
+a0 gante
+a1 Gildeen
+a2 Mecha Gante
+a3 Blaze
+a4 Big Garuda
+a5 Dijeh SE-R
+a6 Gilgil
+a7 ZumeZume
+a8 Gosgos
+a9 Dragonosaurus
+aa Picdoron
+ab Toros D7
+ac Gratonios
+ad Magma Beast Garmuth
+ae Bood
+af Gool
+b0 White base
+b1 Argamma
+b2 Nahel Argama
+b3 Ra Callum
+b4 Fossil Beast Bustdon
+b5 Dogosse Giar
+b6 Dolos
+b7 Musai
+b8 Zakrello
+b9 Medea
+ba Gilgilgan buggo
+bb Gilgilgan Starrider
+bc Gilgilgan Winged
+bd Mecha Gilgilgan
+be Drukin
+bf Greytarkin
+c0 Galgau
+c1 Silberwind
+C2 Dikastes
+c3 Neo Granzon
+c4 G-Defenser
+C5 Gargantua
+c6 Pantagruel
+c7 Gaza-C MS
+c8 Gaza-C Ship
+c9 Valsion Custom
+ca ---- Unused? Breaks if weapon list is looked at
+cb ---- Unused? Breaks if weapon list is looked at
+cc ---- Unused? Breaks if weapon list is looked at
+cd ---- Unused? Breaks if weapon list is looked at
+ce ---- Unused? Breaks if weapon list is looked at
+cf ---- Unused? Breaks if weapon list is looked at
+d0 ---- Unused? Sometimes Breaks if weapon list is looked at - Special property detach combine 
+d1 ---- Unused? Breaks if weapon list is looked at - Confirm Menu has attack and form, transform
+				special property AND getter punch on right side in special 						property menu too? does weird things to graphics and after					transform digs into dirt while dimming sprite Safer than d2
+d2 ---- Unused? Breaks if weapon list is looked at - cancel button ( brings up menu for hp / 
+				pilot ) breaks game.  Confirm Menu can break OR has attack and 						form, transform special protery, getter punch is on left side,						very messy graphics. z
+d3 etter Cyclone?  Doesn't really break as much but definitely not meant to be used, acts similar 				to Getter 1 in weapon menu.  pulls up random weapons, will use 				pistol if countering.
+d4 ile?  Breaks if weapon list is looked at
+d5 etter Punch?  Similr to D3
+d6 on Beam?  Breaks if weapon list is looked at
+d7 -b unused?  breaks if weapon list is looked at.
+d8 blank, similar to 00
+d9 breaks on cancel menu load, breaks on status shift, no name.  confirm menu works, form exists
+da breaks on cancel menu load, breaks on status shift, no name.  confirm menu works, no extra 										items
+db breaks on cancel menu laod, breaks on status shift, no name.  confirm menu works.  Attack 			extra command.  LOTS of weapons to choose from, multiple repeats.
+dc works, scrunched and weird text.  ....BetaAlpha
+dd No name ( blank ), weapon menu filled with similar to db dc.  doesn't break.
+de weapon menu breaks, no name/blank, similar to 00.
+df weapon menu doesn't break, similar to db dc dd.  Name is fubared, getter punch. cancel breaks
+ea cancel breaks, status breaks, attack list filled as above.
+eb cancel breaks, status breaks, no attack menu
+ec name is weird, lots of chevrons, IIIs.  weapon menu breaks
+ed cancel menu breaks, status screen breaks, form does nothing.
+ef blank, semi stable
+f0 Getter punch, breaks on weapon menu
+f1 blank, semi stable
+f2 ile?  
+f3 getter punch, breaks on weapon load
+f4 lade?  Lots of messup breaks on weapon load
+f5 yclone?  breaks on weapon load
+f6 #Getter punch, actual graphics.  semi stable, weird weapon lists again
+f7 weird name, getter punch right, semi stable weapon menu, strangely different weapons than most 				other weapon lists
+f8 blank, definitely breaks map like most others but this one's new where it gets a lot of 					blank textures, "stable" weapon list, non changing
+f9 breaks, can't load name, but can do confirm menu
+fa breaks, can't load name, semi stable weapon list like f8 and some others.
+fb breaks on attempt to load name
+fc absolutely worst break seen, name is constantly changing ... maybe a byte mover?  loaded a 				menu when going into status screen, most of the rest of the menu screen is black.
+		when backing out of unit screen, the map gets super weird, weirder than usual.
+fd attack show sup in menu but it breaks, name seems to pull up a lot of text and textures.  
+			weird stuff in weapon menu, surprised it even loaded.  things like sea 			space en etc. show up.
+fe attempt to load name breaks
+ff attempt to load name breaks.
+
+Pilot list
+00 Amuro picture..with ... no name?  Weird.  Why is pilot of all things being confusing.
+01 Breaks!  Amuro picture with a bunch of weird text.  Weird.
+02 Breaks, same as 01.  Or close to.
+03 The real Amuro, will he please stand up
+04 Kamille Bidan
+05 Judau Ashta
+06 Seabook Arno ( Why him?  He actually sucks in SRW3 )
+07 Benkei Kuruma ( Why is he 7 and not Ryoma? )
+08 Ryoma Nagare
+09 Hayato Jin ( Getter )
+0a Musashi Tomoe
+0b Hyoma Aoi ( Commattler )
+0c Juzo Naniwa
+0d Chizuru Nanbara
+0e Daisaku Nishikawa
+0f Kosuke Kita
+10 Akira Hibiki ( Raideen )
+11 Banjo Haran
+12 Bright Noa
+13 Kai shinden
+14 Hayato Kobayashi ( Gundam ) * Dies
+15 Ryu Jose * Dies
+16 Mirai Yashima?  Comm officer under Bright ** SHE STARTS WIH FRIENDSHIP WOA
+17 Sayla Mass
+18 Fraw Bow ** Not a normal pilot 
+19 Sleggar Law
+1a Matilda Ajan - I am honestly shocked she has love friendship and love...all by 6.  She must 			not have a serious leveling curve.
+1b Emma sheen
+1c Reccoa Londe
+1d Fa Yuiry
+1e Henken Bekkener  ( Who is this guy? )  He also starts with love.
+1f Quattro Bajeena
+20 Apolly
+21 Roberto
+22 Katz Kobayashi  
+23 Elle Vianno
+24 Roux Louka
+25 Iino Abbav
+26 Beecha Oleg ( Who? )
+27 Mondo Agake
+28 Cecily Fairchild
+29 Sayaka Yumi
+2a Boss Borot
+2b Tetsuya Tsurugi
+2c Jun Hono
+2d Koji Kabuto
+2e Jack King
+2f michiru Saotome
+30 Chikara Jinguji
+31 Taro Sarumaru
+32 Mari Sakurano
+33 Rei Asuka
+34 Beauty Tachibana
+35 Reika Sanjo
+36 Garrison Tokita
+37 Tota Toda
+38 Char Aznable
+39 Layla Sun
+3a M'Quve
+3b Ramba Ral
+3c Gaia
+3d Mash
+3e ortega
+3f Garma Zabi
+40 Dozle Zabi
+41 Jerid Messa
+42 Kacricon Cacooler 
+43 Lila Milla Rira
+44 Four Murasame
+45 Rosamia Badam
+46 Ben Wooder
+47 Buran Blutarch
+48 Sarah Zabiarov
+49 Mouar Pharaoh
+4a Gates Capa
+4b Yazan Gable
+4c Ramsus Hasa
+4d Patimus Scirocco
+4e Haman Karn
+4f Elpeo Ple
+50 Mashymre Cello
+51 Gottn Goh
+52 Glemy Toto
+53 Chara Soon
+54 August Guidan
+55 Arius Moma
+56 Rakan Dahkaran
+57 Illia Pazom
+58 Ple Two
+59 Nee Gylen
+5a Lance Gylen
+5b Dorel Ronah
+5c Annamarie Bourget
+5d Zabine Chareux
+5e Carozzo Ronah
+5f Christina Mackenzie
+60 Bernard Wiseman
+61 Astonaige Medoz
+62 Emary Ounce ( No spirits? )  Weird, no spirits at 6x4
+63 Cameron Bloom
+64 Kycilia Zabi
+65 Gyunei Guss
+66 Gihren Zabi
+67 Quess Paraya
+68 Crowley Hamon
+69 Clamp
+6a Kayra Su
+6b Cozun Graham
+6c Conscon
+6d Denim
+6e Gene
+6f Slender
+70 Chan Agi ( Has love )
+71 Nanai Miguel
+72 Hathaway Noa (????How is he even in this??? )
+73 Bask Om
+74 Flannagan Boone
+75 Beltorchika Irma
+76 Leina Ashta NO SPIRITS
+77 Rezin Schnyder
+78 Kou Uraki
+79 Steiner Hardy
+7a Anavel Gato
+7b Duke Fleed
+7c Maria Fleed
+7d Challia Bull
+7e Lune Zoldark
+7f Masaki Andoh
+80 Shu Shirakawa
+81 Nina Purpleton
+82 Baron Ashura
+83 count Brocken
+84 Sharkin
+85 Garuda
+86 General Revil
+87 Hikaru Makiba
+88 Karius
+89 Eiphar Synapse
+8a Chuck Keith
+8b Lucette Audevie
+8c Mia NO SPIRITS
+8d Miharu Tatokie
+8e Bernard Monsha
+8f Kochoki
+90 Tekkoki
+91 Gennosuke Yuma NO SPIRITS
+92 Dr. Saotome - BREAKS!  Quite sad, he should be playable
+93 Dr. Yotsuya - Breaks!  Seems spirits is the cause
+94 Ropet
+95 Dr. MoriMori useable
+96 Dr. Sewashi useable
+97 Dr. Nossori useable
+98 Cima Garahau
+99 Dimitri
+9a Tokwan
+9b Dren
+9c Braskinev
+9d naida
+9e Kirika
+9f Gt. General of Darkness
+a0 Haro
+a1 DC Soldier
+a2 Bioroid Soldier
+a3 Vigagi
+a4 Sikalog
+a5 Mekibos
+a6 Aguija
+a7 Wendolo
+a8 Mary King, NO SPIRITS
+a9 DC Soldier
+aa Alfred Izuruha NO SPIRITS
+ab AI No spirits
+ac Sniper
+ad AI++
+ae Elite Soldier Bio
+af Elite Soldier DC
+b0 Bioroid++
+b1 Kamille Bidan?  No spirits?  Stats seem bad
+b2 Back to Amuro with no name
+b3 Amuro with no name 
+b4 Amuro with no name 
+b5 Amuro with no name 
+b6 Amuro with no name 
+b7 Amuro with no name 
+b8 Amuro with no name 
+b9 Amuro with no name 
+ba Amuro with no name 
+bb Amuro with no name 
+bc Amuro with no name 
+bd Amuro with no name 
+be Amuro with no name 
+bf ----- with picture of Amuro
+c0 Weird name with picture of amuro
+c1 oton Beam with picture of amuro
+c2 M2 with picture of Amuro
+c3 Getter punch with cancel menu, otherwise breaks
+c4 messed up portrait attle crane stable
+c5 blank portrait, messed up name but stable
+c6 Picture of kirika? lgoog M breaks on menu cancel, messes with map graphics
+c7 cancel menu breaks  name Be   Pilot screen breaks   map graphics break after checking pilot
+c8 cancel menu breaks name nim   otherwise stable
+c9 portrait exists   broken name   status menu breaks
+ca name re  multiple pictures
+cb name "sen" or "am absorb" otherwise stable no spirits
+cc name ambsorb or absolutely breaks status screen, no freeze but messes up map textures
+cd blank name with picture of Amuro with lucky spirit
+ce cancel menu breaks - HePunch surprisingly accurate spirits
+cf cancel menu desstroooys the screen, surprisingly stable otherwise.
+d0 Absolute weirdness, can't cancel back from pilot screen 
+d1 cancel menu breaks, name is tons of nonsense, otherwise stable
+d2 amuro with no name and status breaks
+d3 Picture of fraw, nonsense name, map gets weird after loading pilot screen
+d4 two names, combine or ada K7, otherwise stable, picture of amuro
+d5 two names, ombine or nu gundam
+d6 multiple pictures, broken text names, map breaks on return from status screen
+d7 amuro with no name or teoo in status screen, otherwise stable
+d8 Amuro with no name but cancel menu breaks
+d9 Amuro with no name but cancel menu breaks
+da Amuro with messed up name, no breaks
+db cancel menu makes map weird, not as bad as cf  name q Dq(reverse r) qq
+dc cancel menu makes map weird, name overflows, picture of Ryu (Gundam)
+dd status screen picture of suit gets weiiiiird, messed up name, messed up other parts
+		pilot menu is also weird, weapon menu breaks, leave and try either confirm or 
+		confirm or cancel and map goes nuts
+de Fraw with no name on cancel menu, name M in status screen, pilot menu weird, map breaks
+df cancel menu breaks, fraw with no name, pilot status screen weird, map breaks
+e0 name Storm, unknown picture, pilot screen breaks, map breaks, otherwise stable	
+e1 cancel menu breaks, Fraw named lgoog M, Pilot screen breaks, map breaks
+e2 multiple portraits, lsword name, cancel menu breaks, pilot screen breaks
+e3 two names, umaru?  status screen gets utterly messy but otherwise stable?
+e4 name crazed, two different sets of textures and sequence, otherwise stable
+e5 cancel menu breaks map, status screen name Gene
+e6 Amuro with no name, status screen breaks
+e7 ttle Crane, cancel menu name overflows
+e8 unknown pilot picture from e0, map breaks, name Storm
+e9 two names, cancel menu overflows, m cannon in status screen, otherwise stable
+ea cancel menu breaks, overflowed name, picture of a boss, after leaving status menu map breaks
+eb stablest static picture
+ec two names, spark and overflow ( cancel menu ), don't recall portrait
+ed cancel menu overflow, fraw with two names.
+ee Not stable, picture of fraw then amuro and then full on menu bork
+ef cancel menu name overflow, otherwise name :
+f0 Amuro with no name/ eue ziel otherwise stable
+f1 cancel menu breaks, Amuro with name ublas M2
+f2 cancel menu breaks, amuro with no name
+f3 unknwon portrait, Super EM Spark, cancel menu breaks
+f4 Cancel menu breaks, same portrait as F3, lgoog M
+f5 Overflow name in cancel menu, portrait is blank, name sword
+f6 Much weirdness in cancel menu, Name zieru, portrait reverts to Amuro after pilot menu
+f7 cancel menu overflow, destroys map, status screen is amuro with no name
+f8 cancel menu overflow, name e spark in status screen.  map breaks
+f9 cancel menu no name, Fraw with ine X1.  map breaks
+fa fully breaks
+fb cancel menu breaks, Amuro with name sen
+fc two names, cancel h Special, status screen M2, portrait Amuro
+fd Picture slender, name overflow, otherwise stable
+fe cancel menu name overflow, Fraw, status screen unreachable
+ff surprisingly stable, little d name in status screen, Fraw, cancel menu name overflow/map corruption
+ 
+
+
+
+
+
+
+      02 14 05 11 03 03 11 13 05 13 17 01 10 15 
+06 15 14 04 15 2d 00 14 29 02 16 08
+
+
+
+
+
+
+
+
+
+
+
