@@ -235,10 +235,10 @@ function randomize(rom, rng, opts) {
 	}
 //	rom[scenarioOneAlly[0][4]=math.floor(rng()*23); // x position
 //	rom[scenarioOneAlly[0][5]=math.floor(rng()*23); // y position
-/*	for ( let i = 1; < 10;i+=1)
+	for ( let i = 1; < 10;i+=1)
 	{
-		rom[scenarioOneAlly[0][4]+i*3-1]=math.floor(rng()*23); // x position
-		rom[scenarioOneAlly[0][5]+i*3-1]=math.floor(rng()*23); // y position
+//		rom[scenarioOneAlly[0][4]+i*3-1]=math.floor(rng()*23); // x position
+//		rom[scenarioOneAlly[0][5]+i*3-1]=math.floor(rng()*23); // y position
 		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
 	}
 	
