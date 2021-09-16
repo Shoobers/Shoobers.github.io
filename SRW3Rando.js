@@ -1,13 +1,14 @@
-let conv = function(bank, addr) {
-  return bank*0x2000+addr+0x10;
-}
-
+// don't think I need conv
+/*let conv = function(bank, addr) {
+  return bank*0x2000+addr;
+}*/
+/* keeping for example reasons
 let fightSlots = [
   ['freeonFight', conv(0x7, 0x1014), null],
   ['shadesFight', conv(0x7, 0x1060), ['swim']],
   ['gilFight', conv(0x7, 0x10ac), ['suction', 'swim']]
-];
-
+]; */
+/* Keeping for example reasons
 // reqs - suction, gil, bombs, ice, bopsSpecial, swim, freeon, shades
 let chestSlots = [
   ['snowArea_byChimney', ['suction', 'gil']],
@@ -34,8 +35,9 @@ let chestSlots = [
   ['faucetArea_aboveFaucetCave', ['freeon', 'suction'], ['gil', 'bombs', 'suction']],
   ['westCliffsArea_inBigWaterRoom', ['suction', 'gil']],
   ['finalBossCorridor', ['suction'], ['swim']],
-]
+]*/
 
+/* Keeping for example reasons
 let treasures = [
   {
     name: 'freeon',
@@ -45,216 +47,10 @@ let treasures = [
     spriteSpecIdx: 0x30,
     palettesIdx: 0x01
   },
-  {
-    name: 'shades',
-    text: 0x03,
-    globalFlag: 0x09,
-    chrBank: null,
-    spriteSpecIdx: 0x30,
-    palettesIdx: 0x01
-  },
-  {
-    name: 'gil',
-    text: 0x05,
-    globalFlag: 0x0a,
-    chrBank: null,
-    spriteSpecIdx: 0x30,
-    palettesIdx: 0x01
-  },
-  {
-    name: 'heartContainer1',
-    text: 0x16,
-    globalFlag: 0x10,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'heartContainer2',
-    text: 0x16,
-    globalFlag: 0x11,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'heartContainer3',
-    text: 0x16,
-    globalFlag: 0x12,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'heartContainer4',
-    text: 0x16,
-    globalFlag: 0x13,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'blueKey',
-    text: 0x20,
-    globalFlag: 0x05,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x33,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'greenKey',
-    text: 0x21,
-    globalFlag: 0x06,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x33,
-    palettesIdx: 0x05
-  },
-  {
-    name: 'redKey',
-    text: 0x22,
-    globalFlag: 0x07,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x33,
-    palettesIdx: 0x04
-  },
-  {
-    name: 'bopsSpecial',
-    text: 0x18,
-    globalFlag: 0x39,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2d,
-    palettesIdx: 0x00
-  },
-  {
-    name: 'ice',
-    text: 0x1e,
-    globalFlag: 0x01,
-    chrBank: 0x79,
-    spriteSpecIdx: 0x2e,
-    palettesIdx: 0x00
-  },
-  {
-    name: 'shadesSpecial',
-    text: 0x1d,
-    globalFlag: 0x02,
-    chrBank: 0x7b,
-    spriteSpecIdx: 0x2d,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'bombs',
-    text: 0x1f,
-    globalFlag: 0x03,
-    chrBank: 0x79,
-    spriteSpecIdx: 0x2d,
-    palettesIdx: 0x03
-  },
-  {
-    name: 'suction',
-    text: 0x17,
-    globalFlag: 0x04,
-    chrBank: 0x7b,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x00
-  },
-  {
-    name: 'saveCrystal',
-    text: 0x13,
-    globalFlag: 0x30,
-    chrBank: 0x7a,
-    spriteSpecIdx: 0x2d,
-    palettesIdx: 0x00
-  },
-  {
-    name: 'map',
-    text: 0x14,
-    globalFlag: 0x31,
-    chrBank: 0x7a,
-    spriteSpecIdx: 0x2c,
-    palettesIdx: 0x03
-  },
-  {
-    name: 'compass',
-    text: 0x15,
-    globalFlag: 0x32,
-    chrBank: 0x7a,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x02
-  },
-  {
-    name: 'powerRing1',
-    text: 0x19,
-    globalFlag: 0x33,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x32,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'powerRing2',
-    text: 0x19,
-    globalFlag: 0x34,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x32,
-    palettesIdx: 0x05
-  },
-  {
-    name: 'powerRing3',
-    text: 0x19,
-    globalFlag: 0x35,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x32,
-    palettesIdx: 0x04
-  },
-  {
-    name: 'potion0',
-    text: 0x1a,
-    globalFlag: 0x36,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'waterOfLife',
-    text: 0x1b,
-    globalFlag: 0x37,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x04
-  },
-  {
-    name: 'insight',
-    text: 0x1c,
-    globalFlag: 0x38,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x31,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'potion1',
-    text: 0x1a,
-    globalFlag: 0x36,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'potion2',
-    text: 0x1a,
-    globalFlag: 0x36,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x06
-  },
-  {
-    name: 'potion3',
-    text: 0x1a,
-    globalFlag: 0x36,
-    chrBank: 0x78,
-    spriteSpecIdx: 0x2f,
-    palettesIdx: 0x06
-  },
 ]
+*/
 
+/* keeping for example reasons
 let textPageContinuesToReplace = [
   conv(0x01, 0x0fa4), // seeing freeon
   conv(0x01, 0x1047), // beating freeon
@@ -275,11 +71,109 @@ let textPageContinuesToReplace = [
   conv(0x01, 0x18e9), // shade's special
   conv(0x01, 0x1964), // freeon's special
   conv(0x01, 0x19d6), // gil's special
+] */
+
+let fullEnemyMechs = [
+	01, 02, 03, 04, 05, 06, 08, 09, 0a, 0b, 0c, 0d, 0f, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1a, 1b, 1c, 1d, 1e, 1f, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 2a, 2b, 
+	2c, 2d, 2e, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 3a, 3b, 3c, 3d, 3e, 3f, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 4a, 4b, 4c, 4d, 4e, 4f, 50, 51, 52, 53, 54, 55, 
+	56, 57, 58, 59, 5a, 5b, 5c, 5d, 5e, 5f, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 6a, 6b, 6c, 6d, 6e, 6f, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 7a, 7b, 7c, 7d, 7e,
+	7f, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 8a, 8b, 8c, 8d, 8e, 8f, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 9a, 9b, 9c, 9d, 9e, 9f, a0, a1, a2, a3, a4, a5, a6, a7,
+	a8, a9, aa, ab, ac, ad, ae, af, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, be, bf, c0, c1, c2, c3, c4, C5, c6, c7, c8, c9 
+]//2f has no map sprite and will cause major issues, bb-bd is created on death from ba
+
+let fullAllyMechs = [
+	01, 02, 03, 04, 05, 06, 08, 09, 0a, 0b, 0c, 0d, 0f, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1a, 1b, 1c, 1d, 1e, 1f, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 2a, 2b, 
+	2c, 2d, 2e, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 3a, 3b, 3c, 3d, 3e, 3f, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 4a, 4b, 4c, 4d, 4e, 4f, 50, 51, 52, 53, 54, 55, 
+	56, 57, 58, 59, 5a, 5b, 5c, 5d, 5e, 5f, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 6a, 6b, 6c, 6d, 6e, 6f, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 7a, 7b, 7c, 7d, 7e,
+	7f, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 8a, 8b, 8c, 8d, 8e, 8f, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 9a, 9b, 9c, 9d, 9e, 9f, a0, a1, a2, a3, a4, a5, a6, a7,
+	a8, a9, aa, ab, ac, ad, ae, af, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, ba, be, bf, c0, c1, c2, c3, c4, C5, c6, c7, c8, c9 
+]//2f has no map sprite and will cause major issues, bb-bd is created on death from ba
+
+let pilotList = [
+	
+	03, 04, 05, 06, 07, 08, 09, 0a, 0b, 0c, 0d, 0e, 0f, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 1a, 1b, 1c, 1d, 1e, 1f, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 2a, 2b, 2c,
+	2d, 2e, 2f, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 3a, 3b, 3c, 3d, 3e, 3f, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 4a, 4b, 4c, 4d, 4e, 4f, 50, 51, 52, 53, 54, 55, 56,
+	57, 58, 59, 5a, 5b, 5c, 5d, 5e, 5f, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 6a, 6b, 6c, 6d, 6e, 6f, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 7a, 7b, 7c, 7d, 7e, 7f, 80,
+	81, 82, 83, 84, 85, 86, 87, 88, 89, 8a, 8b, 8c, 8d, 8e, 8f, 90, 91, /*92,  93,*/ 94, /*95, */ 96, 97, 98, 99, 9a, 9b, 9c, 9d, 9e, 9f, a0, a1, a2, a3, a4, a5, a6, a7, 
+	a8, a9, aa, ab, ac, ad, ae, af, b0 
 ]
+
+
+
+let scenarioOneEnemy = [ // sixteen initial, 4 reinforcement
+	//Pilots 
+	[
+	0x068262, //Char
+	0x07ba90,
+	],
+	//levels
+	[
+	0x068263, //Char
+	0x07ba91,
+	],
+	//mechs
+	[
+	0x068264, //Char
+	0x07ba92,
+	],
+	//turnstoactivation
+	[
+	0x068265, //Char
+	0x07ba93,
+	],
+	//X position max x17
+	[
+	0x068260, //Char
+	0x07ba8e,
+	],
+	//Y position max x17
+	[
+	0x068261, //Char
+	0x07ba8f,
+	],
+	
+	//color and team
+	[
+	0x068267, //Char
+	0x07ba95,
+	]
+]
+	
+let scenarioOneAlly = [  // 11 long
+	//Pilot
+	[
+	0x0682e4, //Bright
+	],
+	//level
+	[
+	0x0682e5
+	],
+	//mech
+	[
+	0x0682e6
+	],
+	//color and allegience?
+	[
+	0x0682e7
+	],
+	//x position  ** remember, first slot is 2 bytes, everything after is 3 bytes!! max x17
+	[
+	0x068312
+	],
+	//y position max x17
+	[
+	0x068313
+	]
+	//pilot pointer  ** do not use until second loop
+	[
+	0x068316
+	]
+]
+	
 
 function randomize(rom, rng, opts) {
   // build slots to mutate
-  let r_slots = {};
+/*  let r_slots = {};
 
   for (let i = 0; i < 3; i += 1) {
     r_slots[fightSlots[i][0]] = {
@@ -304,17 +198,24 @@ function randomize(rom, rng, opts) {
       reqs: chestSlots[i].slice(1)
     }
   }
+*/
 
+	
+	
+	
+	
+	
+	
   // get treasure details and names
-  let treasureMap = {};
+/*  let treasureMap = {};
   let treasureNames = [];
   for (let i = 0; i < treasures.length; i += 1) {
     treasureMap[treasures[i].name] = treasures[i];
     treasureNames.push(treasures[i].name);
-  }
+  }*/
 
   // loop until rom randomized
-  let spheres = [];
+/*  let spheres = [];
   let unobtainable = [];
 
   while (true) {
@@ -333,9 +234,9 @@ function randomize(rom, rng, opts) {
       available_treasures.splice(chosen_treasure, 1);
       available_slots.splice(chosen_slot, 1);
     }
-
+*/
     // validate logic
-    let outstanding_places = Object.keys(r_slots);
+/*    let outstanding_places = Object.keys(r_slots);
     let gotten_items = [];
     spheres = [];
 
@@ -390,9 +291,9 @@ function randomize(rom, rng, opts) {
         }
       }
     }
-
+*/
     // success condition
-    let successfully_randomized = false;
+/*    let successfully_randomized = false;
     if (gotten_items.indexOf('blueKey') !== -1 &&
       gotten_items.indexOf('greenKey') !== -1 &&
       gotten_items.indexOf('redKey') !== -1 &&
@@ -409,9 +310,9 @@ function randomize(rom, rng, opts) {
     unobtainable.sort((a, b) => (a[0] > b[0]) ? 1 : -1);
     break;
   }
-
+*/
   // mutate slots
-  for (let [k, v] of Object.entries(r_slots)) {
+/*  for (let [k, v] of Object.entries(r_slots)) {
     let slot_treasure = treasureMap[r_slots[k].treasure];
     rom[v.text] = slot_treasure.text;
     for (let i = 0; i < v.globalFlag.length; i += 1)
@@ -422,18 +323,18 @@ function randomize(rom, rng, opts) {
       rom[v.spriteSpecIdx] = slot_treasure.spriteSpecIdx;
       rom[v.palettesIdx] = slot_treasure.palettesIdx;
     }
-  }
+  }*/
 
   // mutate qol - shorter text
-  if (opts.romType !== 'JP') {
+/*  if (opts.romType !== 'JP') {
     for (let i = 0; i < textPageContinuesToReplace.length; i += 1)
       rom[textPageContinuesToReplace[i]] = 0xff;
-  }
+  }*/
 
   // todo: mutate qol - no dialog entities
   // bug: this prevents platforms from appearing
   // rom[conv(0x0b, 0x0ffd)] = 0x60;
 
   // return spheres with loc + items details, and rom
-  return [spheres, unobtainable, rom];
+  return [/*spheres, unobtainable, */rom];
 }

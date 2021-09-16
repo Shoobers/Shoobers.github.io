@@ -86,29 +86,40 @@ b432/3 seems to refer to a background layer index?
 
 0682xx seems to be mostly relating to Scenarios and MS positioning/type/etc.
 
-068260 is grid value, x then y of first enemy pilot in scenario 1
+068260 is X grid value of first enemy pilot in scenario 1
+068261 is y grid value of first enemy pilot in scenario 1
 068262 when changed from 38 to 39 made Char become Lalah - Any time Char loaded on map, Londo Bell was referred to.  Amuro can't talk to the new pilot who changed from char in Scenario 1.  Will need to update another time.
 068264 is mech
 068265 is when this unit/pilot becomes active for AI purposes
 068267 x# is color of mech   #x is team of mech
 66 unsure of what bytes mean yet.
 
-
 This continues down to
-
 
 0682d8 in a similar format
 
-0682e0 has 4 bytes of FF for some reason, then it starts player?  * Changes these does WEIRD things to player locations and data.
+0682e0 has 4 bytes of FF for some reason, then it starts player?  * Changing these does WEIRD things to player locations and data.
+
+0682e4 pilot
+0682e5 pilot level
+0682e6 mech/ship
+068267 x# is color of mech   #x is team of mech
+
+it then repeats per 4
+
 
 068310 unsure why these are FFs, probably a way to tell the code loading it to break so it can load he next important data, see below
-068312/3 is player MS 1 horizontal/vertical position
+068312/3 is player MS 1 x/y position
+
 
 068316 if changed makes Amuro disapear?  Or adjust to whoever the pilot is corresponding to in this byte?  
+This section is odd.  First two bytes will always be WB/Bright ( or whoever should be it's pilot )
+Then it's split into sets of 3 bytes, presumably regarding which pilot / mech goes in that spot as a pointer.  IF PILOT DOES NOT CORRESPOND TO HANGER, NOONE GOES IN THAT SLOT PERIOD.
+
 
 07ba8d unsure why this is 00
 
-07ba8e is where reinforcements are called from for scenario 1
+07ba8e is where enemy reinforcements are called from for scenario 1
 
 
 
@@ -433,7 +444,7 @@ Pilot list
 3b Ramba Ral
 3c Gaia
 3d Mash
-3e ortega
+3e Ortega
 3f Garma Zabi
 40 Dozle Zabi
 41 Jerid Messa
@@ -636,8 +647,6 @@ ff surprisingly stable, little d name in status screen, Fraw, cancel menu name o
 
 
 
-      02 14 05 11 03 03 11 13 05 13 17 01 10 15 
-06 15 14 04 15 2d 00 14 29 02 16 08
 
 
 
