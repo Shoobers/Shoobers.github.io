@@ -108,45 +108,45 @@ let scenarioOneEnemy = [ // sixteen initial, 4 reinforcement
 	//Pilots 
 	[
 	0x068262, //Char
-	0x07ba90,
+	0x07ba90
 	],
 	//levels
 	[
 	0x068263, //Char
-	0x07ba91,
+	0x07ba91
 	],
 	//mechs
 	[
 	0x068264, //Char
-	0x07ba92,
+	0x07ba92
 	],
 	//turnstoactivation
 	[
 	0x068265, //Char
-	0x07ba93,
+	0x07ba93
 	],
 	//X position max x17
 	[
 	0x068260, //Char
-	0x07ba8e,
+	0x07ba8e
 	],
 	//Y position max x17
 	[
 	0x068261, //Char
-	0x07ba8f,
+	0x07ba8f
 	],
 	
 	//color and team
 	[
 	0x068267, //Char
-	0x07ba95,
+	0x07ba95
 	]
 ];
 	
 let scenarioOneAlly = [  // 11 long
 	//Pilot
 	[
-	0x0682e4, //Bright
+	0x0682e4 //Bright
 	],
 	//level
 	[
