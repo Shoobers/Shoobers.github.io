@@ -134,25 +134,24 @@
 		},			
 		computed: {
 			createBlobURL: function() {
-//			if (!this.randomized) return '';
-//				let blob = new Blob([app.randomized_rom], {
-//					type: 'application/octet-stream'
-//				});
-//			return window.URL.createObjectURL(blob);
+			if (!this.randomized) return '';
+				let blob = new Blob([this.randomized_rom], {
+					type: 'application/octet-stream'
+				});
+			return window.URL.createObjectURL(blob);
 			alert('inCreateBlobURL');
 			},
 			fname: function() {
-//				let dt = new Date();
-//				if( app.romType === 'SRW32.0M') {
-//					return `SRW3M-${dt.toJSON()}.sfc`;
-//				} else if (app.romType === 'SRW32.0') {
-//					return `SRW3M-${dt.toJSON()}.sfc`;
-//				} else if ( app.romType = 'SRW31.0') {
-//					return `SRW3-${dt.toJSON()}.sfc`;
-//				} else {
-//					return `SRW3JP-${dt.toJSON()}.sfc`;
-//				}
-			alert('infname()');
+				let dt = new Date();
+				if( this.romType === 'SRW32.0M') {
+					return `SRW32.0eM-${dt.toJSON()}.sfc`;
+				} else if (this.romType === 'SRW32.0') {
+					return `SRW32.0e-${dt.toJSON()}.sfc`;
+				} else if (this.romType = 'SRW31.0') {
+					return `SRW31.0e-${dt.toJSON()}.sfc`;
+				} else {
+					return `SRW3JP-${dt.toJSON()}.sfc`;
+				}
 			}
 		}
 	})
