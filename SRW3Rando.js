@@ -204,7 +204,7 @@ function randomize(rom, rng, opts) {
   }
 */
 
-/*	//scenario 1
+	//scenario 1
 	//on scenario start
 	for ( let i = 0; i < 15; i+=1)
 	{
@@ -245,7 +245,7 @@ function randomize(rom, rng, opts) {
 //		rom[scenarioOneAlly[0][5]+i*3-1]=math.floor(rng()*23); // y position
 		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
 	}
-*/	
+	
 	
 	
 	
