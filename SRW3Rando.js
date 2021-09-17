@@ -138,8 +138,8 @@ function randomize(rom, rng, opts) {
 		rom[scenarioOneAlly[0][2]+i*4]=fullAllyMechs[Math.floor( rng() * fullAllyMechs.length)]; //mechs 
 //		rom[scenarioOneAlly[0][3]+i*4]=Donotchangeyet;
 	}
-	rom[scenarioOneAlly[0][4]=Math.floor(rng()*23); // x position
-	rom[scenarioOneAlly[0][5]=Math.floor(rng()*23); // y position
+	rom[scenarioOneAlly[0][4]]=Math.floor(rng()*23); // x position
+	rom[scenarioOneAlly[0][5]]=Math.floor(rng()*23); // y position
 	for ( let i = 1; i < 10; i+=1)
 	{
 		rom[scenarioOneAlly[0][4]+i*3-1]=Math.floor(rng()*23); // x position
