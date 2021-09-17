@@ -204,9 +204,9 @@ function randomize(rom, rng, opts) {
   }
 */
 
-	//scenario 1
+/*	//scenario 1
 	//on scenario start
-/*	for ( let i = 0; i < 15; i+=1)
+	for ( let i = 0; i < 15; i+=1)
 	{
 		rom[scenarioOneEnemy[0][0]+i*8]=pilotList[math.floor( rng() * pilotList.length())];  //Pilots
 		rom[scenarioOneEnemy[0][1]+i*8]=math.floor( rng() * 12);  //level
