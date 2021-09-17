@@ -34,70 +34,70 @@ let pilotList = [
 let scenarioOneEnemy = [ // sixteen initial, 4 reinforcement
 	//Pilots 
 	[
-	0x068262, //Char
-	0x07ba90
+	0x030262, //Char
+	0x03ba90
 	],
 	//levels
 	[
-	0x068263, //Char
-	0x07ba91
+	0x030263, //Char
+	0x03ba91
 	],
 	//mechs
 	[
-	0x068264, //Char
-	0x07ba92
+	0x030264, //Char
+	0x03ba92
 	],
 	//turnstoactivation
 	[
-	0x068265, //Char
-	0x07ba93
+	0x030265, //Char
+	0x03ba93
 	],
 	//X position max x17
 	[
-	0x068260, //Char
-	0x07ba8e
+	0x030260, //Char
+	0x03ba8e
 	],
 	//Y position max x17
 	[
-	0x068261, //Char
-	0x07ba8f
+	0x030261, //Char
+	0x03ba8f
 	],
 	
 	//color and team
 	[
-	0x068267, //Char
-	0x07ba95
+	0x030267, //Char
+	0x03ba95
 	]
 ];
 	
 let scenarioOneAlly = [  // 11 long
 	//Pilot
 	[
-	0x0682e4 //Bright
+	0x0302e4 //Bright
 	],
 	//level
 	[
-	0x0682e5
+	0x0302e5
 	],
 	//mech
 	[
-	0x0682e6
+	0x0302e6
 	],
 	//color and allegience?
 	[
-	0x0682e7
+	0x0302e7
 	],
 	//x position  ** remember, first slot is 2 bytes, everything after is 3 bytes!! max x17
 	[
-	0x068312
+	0x030312
 	],
 	//y position max x17
 	[
-	0x068313
+	0x030313
 	],
 	//pilot pointer  ** do not use until second loop
 	[
-	0x068316
+	0x030316
 	]
 ];
 	
