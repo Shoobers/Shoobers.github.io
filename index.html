@@ -116,8 +116,15 @@
 				// file processing
 				reader.onload = function() {
 					let view = new Uint8Array(reader.result);
-					let return_val = randomize(view, myrng, {romType: app.romType});
-
+					let return_val;
+					try {
+						return_val = randomize(view, myrng, {romType: app.romType});
+					}
+					catch(e) {
+						alert("error randomizing: "+e);
+						console.error(e);
+						throw e;
+					}
 /*					app.spheres = return_val[0];
 					app.unobtainable = return_val[1];   */
 					app.randomized_rom = return_val[0];    
