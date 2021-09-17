@@ -85,10 +85,10 @@
 						} else if (crcCheck === 2157445912) {
 							app.correctFileCRCcheck = true;
 							app.romType = 'SRW31.0';
-							alert("This is the outdated 1.0 translation by Aeon Genesis")
+							alert("This is the outdated 1.0 translation by Aeon Genesis");
 						} else {
 							app.correctFileCRCcheck = false;
-							alert("You have selected an unrecognized Super Robot Wars 3 rom or a file that is not applicable to this Randomizer")
+							alert("You have selected an unrecognized Super Robot Wars 3 rom or a file that is not applicable to this Randomizer");
 						}
 					reader.abort();
 				};
@@ -134,11 +134,12 @@
 		},			
 		computed: {
 			createBlobURL: function() {
-			alert(this.randomized);
 			if (!this.randomized) return '';
-				let blob = new Blob([this.randomized_rom], {
-					type: 'application/octet-stream'
-				});
+
+			let blob = new Blob([this.randomized_rom], {
+				type: 'application/octet-stream'
+			});
+			
 			return window.URL.createObjectURL(blob);
 			},
 			fname: function() {
