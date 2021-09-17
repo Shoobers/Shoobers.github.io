@@ -167,7 +167,7 @@ let scenarioOneAlly = [  // 11 long
 	//y position max x17
 	[
 	0x068313
-	]
+	],
 	//pilot pointer  ** do not use until second loop
 	[
 	0x068316
@@ -245,6 +245,8 @@ function randomize(rom, rng, opts) {
 //		rom[scenarioOneAlly[0][5]+i*3-1]=math.floor(rng()*23); // y position
 		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
 	}
+	
+	this.randomized=true;
 	
 	
 	
