@@ -121,10 +121,10 @@ function randomize(rom, rng, opts) {
 	//first set of reinforcements
 	for ( let i = 0; i < 3; i+=1)
 	{
-//		rom[scenarioOneEnemy[1][0]+i*8]=pilotList[Math.floor( rng() * pilotList.length)];  //Pilots
-//		rom[scenarioOneEnemy[1][1]+i*8]=Math.floor( rng() * 12);  //level
-//		rom[scenarioOneEnemy[1][2]+i*8]=fullEnemyMechs[Math.floor( rng() * fullEnemyMechs.length)]; //mechs
-//		rom[scenarioOneEnemy[1][3]+i*8]=Math.floor( rng() * 5 ); // turns until activation
+		rom[scenarioOneEnemy[1][0]+i*8]=pilotList[Math.floor( rng() * pilotList.length)];  //Pilots
+		rom[scenarioOneEnemy[1][1]+i*8]=Math.floor( rng() * 12);  //level
+		rom[scenarioOneEnemy[1][2]+i*8]=fullEnemyMechs[Math.floor( rng() * fullEnemyMechs.length)]; //mechs
+		rom[scenarioOneEnemy[1][3]+i*8]=Math.floor( rng() * 5 ); // turns until activation
 //		rom[scenarioOneEnemy[1][4]+i*8]=Math.floor( rng() * 23 ); // x position
 //		rom[scenarioOneEnemy[1][5]+i*8]=Math.floor( rng() * 23 ); // y position
 //		rom[scenarioOneEnemy[1][6]+i*8]=Donotchangeyet;
@@ -133,18 +133,18 @@ function randomize(rom, rng, opts) {
 	//ally spawn
 	for ( let i = 0; i < 10; i+=1)
 	{
-//		rom[scenarioOneAlly[0][0]+i*4]=pilotList[Math.floor( rng() * pilotList.length)]; //pilots
-//		rom[scenarioOneAlly[0][1]+i*4]=Math.floor( rng() * 7); //level
-//		rom[scenarioOneAlly[0][2]+i*4]=fullAllyMechs[Math.floor( rng() * fullAllyMechs.length)]; //mechs 
+		rom[scenarioOneAlly[0][0]+i*4]=pilotList[Math.floor( rng() * pilotList.length)]; //pilots
+		rom[scenarioOneAlly[0][1]+i*4]=Math.floor( rng() * 7); //level
+		rom[scenarioOneAlly[0][2]+i*4]=fullAllyMechs[Math.floor( rng() * fullAllyMechs.length)]; //mechs 
 //		rom[scenarioOneAlly[0][3]+i*4]=Donotchangeyet;
 	}
-//	rom[scenarioOneAlly[0][4]=Math.floor(rng()*23); // x position
-//	rom[scenarioOneAlly[0][5]=Math.floor(rng()*23); // y position
+	rom[scenarioOneAlly[0][4]=Math.floor(rng()*23); // x position
+	rom[scenarioOneAlly[0][5]=Math.floor(rng()*23); // y position
 	for ( let i = 1; i < 10; i+=1)
 	{
-//		rom[scenarioOneAlly[0][4]+i*3-1]=Math.floor(rng()*23); // x position
-//		rom[scenarioOneAlly[0][5]+i*3-1]=Math.floor(rng()*23); // y position
-//		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
+		rom[scenarioOneAlly[0][4]+i*3-1]=Math.floor(rng()*23); // x position
+		rom[scenarioOneAlly[0][5]+i*3-1]=Math.floor(rng()*23); // y position
+		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
 	}
 	
 //	this.randomized=true;
