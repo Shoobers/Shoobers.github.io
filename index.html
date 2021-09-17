@@ -134,12 +134,12 @@
 		},			
 		computed: {
 			createBlobURL: function() {
+			alert('this.randomized');
 			if (!this.randomized) return '';
 				let blob = new Blob([this.randomized_rom], {
 					type: 'application/octet-stream'
 				});
 			return window.URL.createObjectURL(blob);
-			alert('inCreateBlobURL');
 			},
 			fname: function() {
 				let dt = new Date();

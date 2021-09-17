@@ -246,7 +246,7 @@ function randomize(rom, rng, opts) {
 		rom[scenarioOneAlly[0][6]+i*3-1]=rom[scenarioOneAlly[0][0]+i*4];
 	}
 	
-	this.randomized=true;
+//	this.randomized=true;
 	
 	
 	
