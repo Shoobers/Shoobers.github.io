@@ -134,7 +134,7 @@
 		},			
 		computed: {
 			createBlobURL: function() {
-			alert('this.randomized');
+			alert(this.randomized);
 			if (!this.randomized) return '';
 				let blob = new Blob([this.randomized_rom], {
 					type: 'application/octet-stream'
