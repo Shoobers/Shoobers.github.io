@@ -1,7 +1,5 @@
-<style>
-	a[disabled]
-	{
-		pointer-events: none;
-		color: red;
-	}
-</style>
+a[disabled]
+{
+	pointer-events: none;
+	color: red;
+}
