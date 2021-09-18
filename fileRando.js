@@ -15,7 +15,7 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 	
 	methods: {
 		fileChange: function() {
-			this.correctFileCRCcheck = null;
+			app.correctFileCRCcheck = null;
 
 			const selectedFile = document.getElementById('BaseSRW').files[0];
 			let reader = new FileReader();
@@ -23,23 +23,23 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 			reader.onload = function() {
 				let crcCheck = crc32(reader.result);
 				if (crcCheck === 2755626416) {
-					this.correctFileCRCcheck = true;
-						this.romType = 'SRW32.0M';
+					app.correctFileCRCcheck = true;
+						app.romType = 'SRW32.0M';
 						alert("Super Robot Wars 3 translation by Aeon Genesis 2.0 with Music adjusted");
 					} else if (crcCheck === 2235440940) {
-						this.correctFileCRCcheck = true;
-						this.romType = 'SRW32.0';
+						app.correctFileCRCcheck = true;
+						app.romType = 'SRW32.0';
 						alert("Super Robot Wars 3 translation by Aeon Genesis 2.0");
 					} else if (crcCheck === 2282947228) {
-						this.correctFileCRCcheck = true;
-						this.romType = 'SRW3JP';
+						app.correctFileCRCcheck = true;
+						app.romType = 'SRW3JP';
 						alert("Super Robot Wars 3 Japanese");
 					} else if (crcCheck === 2157445912) {
-						this.correctFileCRCcheck = true;
-						this.romType = 'SRW31.0';
+						app.correctFileCRCcheck = true;
+						app.romType = 'SRW31.0';
 						alert("This is the outdated 1.0 translation by Aeon Genesis");
 					} else {
-						this.correctFileCRCcheck = false;
+						app.correctFileCRCcheck = false;
 						alert("You have selected an unrecognized Super Robot Wars 3 rom or a file that is not applicable to this Randomizer");
 					}
 				reader.abort();
@@ -49,35 +49,35 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 		randomizeRom: function() {
 			// use seed if provided, or gen one
 			let myrng;
-			if (this.seed === '') {
-				this.seed = +(new Date()); 
+			if (app.seed === '') {
+				app.seed = +(new Date()); 
 			}
-			myrng = new Math.seedrandom(this.seed);
+			myrng = new Math.seedrandom(app.seed);
 			
 			const selectedFile = document.getElementById('BaseSRW').files[0];
 			let reader = new FileReader();
-			this.randomized = false;
-			this.showing_spoilers = false;
+			app.randomized = false;
+			app.showing_spoilers = false;
 				// file processing
 			reader.onload = function() {
 				let view = new Uint8Array(reader.result);
 				let return_val;
 				try {
-					return_val = randomize(view, myrng, {romType: this.romType});
+					return_val = randomize(view, myrng, {romType: app.romType});
 				}
 				catch(e) {
 					alert("error randomizing: "+e);
 					console.error(e);
 					throw e;
 				}
-/*				this.spheres = return_val[0];
-				this.unobtainable = return_val[1];   */
-				this.randomized_rom = return_val[0];    
-				this.randomized = true;
+/*				app.spheres = return_val[0];
+				app.unobtainable = return_val[1];   */
+				app.randomized_rom = return_val[0];    
+				app.randomized = true;
 				reader.abort();
 				}
 			reader.readAsArrayBuffer(selectedFile);
-			}
+			},
 /*			getRowClass: function(loc_item) {
 				if (loc_item[1].includes('Key'))
 					return 'tr-green';
