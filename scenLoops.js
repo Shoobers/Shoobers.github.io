@@ -71,3 +71,14 @@ function allyRandomize(index, wave, scenAlly, pilots, mechs, rom, rng)
 //	}
 	return rom;
 }
+
+//For getting pilots between stages
+
+function newAllyPilot(index, scenAlly, pilots, rom, rng)
+{
+	for ( let i = 0; i < index; i +=1)
+	{
+		rom[(scenAlly[0][0]+(i*2))] = pick_rand(pilots, rng);
+		rom[(scenAlly[0][1]+(i*2))] = rand(3, 9, rng);
+	}
+}

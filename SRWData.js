@@ -66,7 +66,7 @@ let pilotList = [
 
 
 
-let scenarioOneEnemy = [ // sixteen initial, 4 reinforcement
+let scenarioOneEnemy = [ // 16 initial, 5 reinforcement
 	//Pilots 
 	[
 	0x030262, //Char
@@ -104,6 +104,125 @@ let scenarioOneEnemy = [ // sixteen initial, 4 reinforcement
 	0x03ba95
 	]
 ];
+
+let scenarioTwoEnemy = [ // sixteen initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x030330, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x030331, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x030332, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x030333, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x03032e, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x03032f, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x030335, 
+//	0x03ba95
+	]
+];
+
+let scenarioThreeEnemy = [ // 16 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x0303c2, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x0303c3, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x0303c4, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x0303c5, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x0303c0, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x0303c1, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x0303c7, 
+//	0x03ba95
+	]
+];
+
+let scenarioFourEnemy = [ // 26 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x03044c, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x03044d, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x03044e, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x03044f, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x03044a, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x03044b, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x030451, 
+//	0x03ba95
+	]
+];
+
+
 	
 let scenarioOneAlly = [  // 11 long
 	//Pilot
@@ -136,7 +255,23 @@ let scenarioOneAlly = [  // 11 long
 	]
 ];
 
+let newPilotScenTwo = [
+	[
+		0x0303bc
+	],
+	[
+		0x0303bd
+	]
+]
 
+let newPilotScenThree = [
+	[
+		0x030446
+	],
+	[
+		0x030447
+	]
+]
 
 
 
