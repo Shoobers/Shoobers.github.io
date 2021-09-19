@@ -54,7 +54,7 @@ function allyRandomize(index, wave, scenAlly, pilots, mechs, rom, rng)
 	{
 		let v = pick_rand(pilots, rng);
 		rom[(scenarioOneAlly[0][wave]+(i*4))]=v//pilots
-		if ( i > 0 && i < (index-1) ) {	  // -2 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
+		if ( i > 0 && i < (index-1) ) {	  // -1 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
 			rom[(scenarioOneAlly[6][wave]+((i-1)*3))]=v;
 		}
 		rom[(scenarioOneAlly[1][wave]+(i*4))]=rand(1,8, rng); //level

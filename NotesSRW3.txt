@@ -136,207 +136,207 @@ I learned the hard way that the above values, while they work in the debugger / 
 
 Mech list
 00 Not used
-01 Combattler V with all attacks?
-02 Battle Jet Combattler 
-03 Battle crasher Combattler
-04 Battle Tank Combattler
-05 Battle Marine Combattler
-06 Battle craft Combattler
-07 P Getter Robo ? These two are different mechs?  For hanger I guess?
-08 P Getter 1 ? These are different somehow?
-09 P Getter 2
-0a P Getter 3
-0b Jamru Fin ( "Normal" )
-0c Jamru Fin ( "Fast" ) Why two?  I don't think the AI uses both )
-0d Zaku ( Brown/Garma )
-0e Getter Robo ( For hanger? )
-0f Getter 1
-10 Getter 2
-11 Getter 3
-12 Zeong? full
-13 Zeong? head
-14 Zen II
-15 Getter Robo G
-16 Getter Dragon
-17 Getter Liger
-18 Getter Poseidon
-19 Mecha Kochoki
-1a Mecha Tekkoki
-1b Valsion ( This does not look like Ryune )
-1c Grendizer
-1d Spazer
-1e Double Spazer
-1f Marine Spazer
-20 Drill Spazer
-21 Grendizer Flying/space?
-22 Grendizer Diving?
-23 Grendizer drills?
-24 Mazinger Z
-25 Mazinger Z ( Wing )
-26 Great Mazinger
-27 Gundam
-28 Nu Gundam
-29 Z Gundam
-2a Wave Rider ( Zeta )
-2b ZZ Gundam
-2c G-Fortress ( ZZ )
-2d F-91
-2e Raideen
+01 Combattler V with all attacks? //all
+02 Battle Jet Combattler  //all
+03 Battle crasher Combattler // all
+04 Battle Tank Combattler //all
+05 Battle Marine Combattler //all
+06 Battle craft Combattler //all
+07 P Getter Robo ? These two are different mechs?  For hanger I guess? // all
+08 P Getter 1 ? These are different somehow? // all
+09 P Getter 2 // all 
+0a P Getter 3 // all
+0b Jamru Fin ( "Normal" )  //space
+0c Jamru Fin ( "Fast" ) Why two?  I don't think the AI uses both ) //space
+0d Zaku ( Brown/Garma )  //all
+0e Getter Robo ( For hanger? ) //all
+0f Getter 1 //all
+10 Getter 2 //all
+11 Getter 3 //all
+12 Zeong? full  //space becomes 13 on death 
+13 Zeong? head  //space 
+14 Zen II  //ground
+15 Getter Robo G //all
+16 Getter Dragon //all
+17 Getter Liger //all
+18 Getter Poseidon //all
+19 Mecha Kochoki //all
+1a Mecha Tekkoki //all
+1b Valsion ( This does not look like Ryune )  //all
+1c Grendizer //all
+1d Spazer //all
+1e Double Spazer  //all
+1f Marine Spazer  //all
+20 Drill Spazer  //all
+21 Grendizer Flying/space?    //all
+22 Grendizer Diving?  //all
+23 Grendizer drills?  //all
+24 Mazinger Z    //all
+25 Mazinger Z ( Wing )  //all
+26 Great Mazinger //all
+27 Gundam //all
+28 Nu Gundam //all
+29 Z Gundam //all
+2a Wave Rider ( Zeta )  //all
+2b ZZ Gundam  //all
+2c G-Fortress ( ZZ )  //all
+2d F-91 //all
+2e Raideen //all 
 2f God Bird ** DOES NOT FUNCTION FOR MAP USE ** DO NOT USE FOR RANDO PERIOD
-30 Daitarn 3
-31 Daifighter
-32 Daitank
-33 Cybuster
-34 Cybird
-35 Granzon
-36 Valsione
-37 Texas Mack
-38 Getter Q
-39 Boss Borot
-3a Aphrodite A
-3b Diana A
-3c Venus A
-3d Bluegar
-3e Alex
-3f Gundam Mk-II
-40 Super Gundam ** Can be janky if you detach and it didn't combine!  Warning!!!!
-41 Hyaku Shiki
-42 GP-01
-43 GP-01fb
-44 Guncannon
-45 Methuss MS
-46 Methuss Plane
-47 Rick Dias
-48 Nemo
-49 Jegan
-4a Re-GZ ( Plane )
-4b Re-GZ ( MS )
-4c GP-03 Orchis
-4d GP-03 Stamen
-4e Zaku (Green ?Early?)
-4f Zaku (Red/Char?)
-50 Gouf
-51 Dom
-52 Z'Gok-E
-53 Hygogg
-54 Gyan
-55 Big Zam
-56 Gelgoog ( weak/teal )
-57 Gelgoog J ( red )
-58 Gelgoog M ( green/blue )
-59 Gelgoog M ( orange/yellow Stronger/ Varied )
-5a Gelgoog ( red )
-5b Elmeth
-5c Jaraga
-5d Marasai
-5e Asshimar MS
-5f Asshimar Air
-60 Byarlant
-61 Gaplant MS
-62 Gaplant Plane
-63 Gabthley MS
-64 Gabthley Airship
-65 Hambrabi Land
-66 Hambrabi Air
-67 Messala
-68 Messala Plan
-69 Palace Athene
-6a Baund Doc MS
-6b Baund Doc Airship 
-6c The-0 (boss)
-6d Qubeley
-6e Qubeley Mk-II
-6f Psyco Gundam MS
-70 Psyco Gundam Ship
-71 Psyco Gundam Mk-II MS
-72 Psyco Gundam Mk-II Ship
-73 GM
-74 Zssa
-75 Dreissen
-76 Capule
-77 Bawoo MS Green
-78 Bawoo Air Green
-79 Bawoo MS Red
-7a Bawoo Air Red
-7b Zaku III
-7c Zaku III Custom
-7d Doven Wolf
-7e Geymalk
-7f Queen Mansa
-80 Geara Doga Green
-81 Geara Doga Blue 
-82 Jagd Doga Green
-83 Jagd Doga Orange
-84 Jagd Doga Red
-85 Sazabi
-86 nu Azieru
-87 Dra-C
-88 Neue Ziel
-89 Gerbera Tetra
-8a Kampfer
-8b Dahgi Iris
-8c Berga Giros
-8d Vigna Ghina
-8e Raffleisia
-8f GP-02
-90 Garada K7
-91 Doublas M2
-92 Rhine X1
-93 Jenova M9
-94 Spartan K5
-95 Minerva X
-96 Glossam X2
-97 Abdora U6
-98 Gt General of Darkness
-99 Zai
-9a Zuu
-9b bado
-9c Saki
-9d Shigu
-9e Dai
-9f Dorome
-a0 gante
-a1 Gildeen
-a2 Mecha Gante
-a3 Blaze
-a4 Big Garuda
-a5 Dijeh SE-R
-a6 Gilgil
-a7 ZumeZume
-a8 Gosgos
-a9 Dragonosaurus
-aa Picdoron
-ab Toros D7
-ac Gratonios
-ad Magma Beast Garmuth
-ae Bood
-af Gool
-b0 White base
-b1 Argamma
-b2 Nahel Argama
-b3 Ra Callum
-b4 Fossil Beast Bustdon
-b5 Dogosse Giar
-b6 Dolos
-b7 Musai
-b8 Zakrello
-b9 Medea
-ba Gilgilgan buggo
-bb Gilgilgan Starrider
-bc Gilgilgan Winged
-bd Mecha Gilgilgan
-be Drukin
-bf Greytarkin
-c0 Galgau
-c1 Silberwind
-C2 Dikastes
-c3 Neo Granzon
-c4 G-Defenser
-C5 Gargantua
-c6 Pantagruel
-c7 Gaza-C MS
-c8 Gaza-C Ship
-c9 Valsion Custom
+30 Daitarn 3//all
+31 Daifighter//all
+32 Daitank//all
+33 Cybuster /all
+34 Cybird //all
+35 Granzon  //all
+36 Valsione //all
+37 Texas Mack  //all
+38 Getter Q //all
+39 Boss Borot //ground
+3a Aphrodite A //all
+3b Diana A //all
+3c Venus A //all
+3d Bluegar //all
+3e Alex //all
+3f Gundam Mk-II // all
+40 Super Gundam ** Can be janky if you detach and it didn't combine!  Warning!!!!    //all
+41 Hyaku Shiki //all
+42 GP-01  //all
+43 GP-01fb //all
+44 Guncannon //all
+45 Methuss MS //all
+46 Methuss Plane //all
+47 Rick Dias //all
+48 Nemo //all
+49 Jegan //all
+4a Re-GZ ( Plane )  //all
+4b Re-GZ ( MS ) //all
+4c GP-03 Orchis //space
+4d GP-03 Stamen //all
+4e Zaku (Green ?Early?)  //all
+4f Zaku (Red/Char?) //all
+50 Gouf //ground
+51 Dom //all
+52 Z'Gok-E //all
+53 Hygogg //all
+54 Gyan //all
+55 Big Zam //all
+56 Gelgoog ( weak/teal )//all
+57 Gelgoog J ( red )//all
+58 Gelgoog M ( green/blue )//all
+59 Gelgoog M ( orange/yellow Stronger/ Varied )//all
+5a Gelgoog ( red )//all
+5b Elmeth //space
+5c Jaraga //all
+5d Marasai //all
+5e Asshimar MS //ground
+5f Asshimar Air //all ?air?
+60 Byarlant //all
+61 Gaplant MS //all
+62 Gaplant Plane //all
+63 Gabthley MS //all
+64 Gabthley Airship //all	
+65 Hambrabi Land //all
+66 Hambrabi Air //all
+67 Messala //all
+68 Messala Plane //all
+69 Palace Athene /all
+6a Baund Doc MS //all
+6b Baund Doc Airship //all
+6c The-0 (boss) //all
+6d Qubeley //all
+6e Qubeley Mk-II //all
+6f Psyco Gundam MS //all
+70 Psyco Gundam Ship //all
+71 Psyco Gundam Mk-II MS  //all
+72 Psyco Gundam Mk-II Ship //all
+73 GM //all
+74 Zssa //all
+75 Dreissen //all
+76 Capule //all
+77 Bawoo MS Green //all
+78 Bawoo Air Green //all
+79 Bawoo MS Red //all
+7a Bawoo Air Red //all
+7b Zaku III //all
+7c Zaku III Custom //all
+7d Doven Wolf //all
+7e Geymalk //all
+7f Queen Mansa //all
+80 Geara Doga Green //all
+81 Geara Doga Blue //all
+82 Jagd Doga Green //all
+83 Jagd Doga Orange//all
+84 Jagd Doga Red //all
+85 Sazabi //all
+86 nu Azieru //space
+87 Dra-C //space
+88 Neue Ziel // space
+89 Gerbera Tetra //all
+8a Kampfer //all
+8b Dahgi Iris //all
+8c Berga Giros //all
+8d Vigna Ghina //all
+8e Raffleisia //space
+8f GP-02 //all
+90 Garada K7 //all
+91 Doublas M2 //all
+92 Rhine X1 //all
+93 Jenova M9 //all
+94 Spartan K5 //all
+95 Minerva X //all
+96 Glossam X2 //all
+97 Abdora U6 //all	
+98 Gt General of Darkness //All
+99 Zai //ground
+9a Zuu //ground
+9b bado //ground
+9c Saki //ground
+9d Shigu //ground
+9e Dai //ground
+9f Dorome //ground
+a0 gante //all
+a1 Gildeen //all
+a2 Mecha Gante //all
+a3 Giant Sharkin //ground
+a4 Big Garuda //all
+a5 Dijeh SE-R //all
+a6 Gilgil //all
+a7 ZumeZume //all
+a8 Gosgos //all
+a9 Dragonosaurus //ground
+aa Picdoron //all
+ab Toros D7 //all
+ac Gratonios //all
+ad Magma Beast Garmuth //all
+ae Bood //ground
+af Gool //all
+b0 White base //all
+b1 Argamma //all
+b2 Nahel Argama  // All
+b3 Ra Callum //all
+b4 Fossil Beast Bustdon //all
+b5 Dogosse Giar //space
+b6 Dolos //space
+b7 Musai //space
+b8 Zakrello //all
+b9 Medea //ground
+ba Gilgilgan buggo  // all
+bb Gilgilgan Starrider // all
+bc Gilgilgan Winged // all
+bd Mecha Gilgilgan// all
+be Drukin //all
+bf Greytarkin //all
+c0 Galgau //all
+c1 Silberwind //all
+C2 Dikastes //all
+c3 Neo Granzon //all
+c4 G-Defenser //all
+C5 Gargantua //all
+c6 Pantagruel //all
+c7 Gaza-C MS //all
+c8 Gaza-C Ship //all
+c9 Valsion Custom //all
 ca ---- Unused? Breaks if weapon list is looked at
 cb ---- Unused? Breaks if weapon list is looked at
 cc ---- Unused? Breaks if weapon list is looked at
