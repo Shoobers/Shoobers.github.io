@@ -222,6 +222,203 @@ let scenarioFourEnemy = [ // 26 initial, doubt there's reinforcements
 	]
 ];
 
+let scenarioFiveEnemy = [ // 26 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x030526, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x030527, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x030528, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x030529, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x030524, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x030525, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x03052b, 
+//	0x03ba95
+	]
+];
+
+let scenarioSixEnemy = [ // 16 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x030600, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x030601, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x030602, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x030603, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x0305fe, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x0305ff, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x030605, 
+//	0x03ba95
+	]
+];
+
+let scenarioSevenEnemy = [ // 12 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x03068A, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x03068B, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x03068C, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x03068D, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x030688, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x030689, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x03068F, 
+//	0x03ba95
+	]
+];
+
+
+let scenarioEightEnemy = [ // 12 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x03068A, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x03068B, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x03068C, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x03068D, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x030688, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x030689, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x03068F, 
+//	0x03ba95
+	]
+];
+
+let scenarioEightEnemy = [ // 12 initial, doubt there's reinforcements
+//Pilots 
+	[
+	0x030702, 
+//	0x03ba90
+	],
+	//levels
+	[
+	0x030703, 
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x030704, 
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x030705, 
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x030700, 
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x030701, 
+//	0x03ba8f
+	],
+	
+	//color and team
+	[
+	0x030707, 
+//	0x03ba95
+	]
+];
+
+
 
 	
 let scenarioOneAlly = [  // 11 long
@@ -255,6 +452,7 @@ let scenarioOneAlly = [  // 11 long
 	]
 ];
 
+/*  Unsure if these actually control the data I thought they did.
 let newPilotScenTwo = [
 	[
 		0x0303bc
@@ -282,7 +480,7 @@ let newPilotScenThree = [
 	]
 ]
 
-
+*/
 
 
 

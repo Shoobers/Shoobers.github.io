@@ -13,23 +13,29 @@ function randomize(rom, rng, opts) {
 	// newAllyPilot(0, newPilotScenTwo, pilotList, rom, rng, 4, 9);
 	
 	// scenario 3
-	enemyRandomize(16, 0, scenarioTwoEnemy, pilotlist, spaceEnemyMechs, rom, rng, 6, 16, 1, 7, 0, 0);
+	enemyRandomize(16, 0, scenarioThreeEnemy, pilotlist, spaceEnemyMechs, rom, rng, 6, 16, 1, 7, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenThree, pilotList, rom, rng, 5, 10);
 	
 	// scenario 4 // 3A maybe?
-	enemyRandomize(26, 0 , scenarioFourEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+	enemyRandomize(26, 0, scenarioFourEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenFour, pilotList, rom, rng, 5, 11);
 	
 	// May be similar to scenario 4... so 3A and 3B?
-	enemyRandomize(26, 0 , scenarioFiveEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+	enemyRandomize(26, 0, scenarioFiveEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
-	// newAllyPilot(0, newPilotScenFour, pilotList, rom, rng, 5, 11);
+	// newAllyPilot(0, newPilotScenFive, pilotList, rom, rng, 5, 11);
+	
+	enemyRandomize(16, 0, scenarioSixEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+	// possible new pilot acquisition?
+	// newAllyPilot(0, newPilotScenSix, pilotList, rom, rng, 5, 11);
 	
 	
+	enemyRandomize(12, 0, scenarioSevenEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+	// possible new pilot acquisition?
+	// newAllyPilot(0, newPilotScenSeven, pilotList, rom, rng, 5, 11);
 	
-
 	
 	
   return [rom];
