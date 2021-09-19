@@ -273,6 +273,15 @@ let newPilotScenThree = [
 	]
 ]
 
+let newPilotScenThree = [
+	[
+		0x030520
+	],
+	[
+		0x030521
+	]
+]
+
 
 
 
