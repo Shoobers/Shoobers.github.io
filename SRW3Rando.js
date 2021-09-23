@@ -17,24 +17,37 @@ function randomize(rom, rng, opts) {
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenThree, pilotList, rom, rng, 5, 10);
 	
-	// scenario 4 // 3A maybe?
+	// scenario 4 // 3A maybe?   // Von Braun ?
 	enemyRandomize(26, 0, scenarioFourEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenFour, pilotList, rom, rng, 5, 11);
 	
-	// May be similar to scenario 4... so 3A and 3B?
+	// May be similar to scenario 4... so 3A and 3B? // atmospheric entry?
 	enemyRandomize(26, 0, scenarioFiveEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenFive, pilotList, rom, rng, 5, 11);
 	
+	//scenario 6?
 	enemyRandomize(16, 0, scenarioSixEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenSix, pilotList, rom, rng, 5, 11);
 	
-	
+	//scenario 7?
 	enemyRandomize(12, 0, scenarioSevenEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenSeven, pilotList, rom, rng, 5, 11);
+	
+	
+	//scenario 8?
+	enemyRandomize(12, 0, scenarioEightEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+
+
+
+	//scenario 9?  No, this is combattler, which is scenario 13?
+	enemyRandomize(12, 0, scenarioNineEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 17, 1, 9, 0, 0);
+	//can we even randomize these five and the combattler acquisition itself?
+	//allyrandomize(5, 0, scenarioNineAlly, pilotList, spaceAllyMechs, rom, rng, 7, 14, 0, 0);
+	
 	
 	
 	

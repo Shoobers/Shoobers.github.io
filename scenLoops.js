@@ -35,6 +35,15 @@ function enemyRandomize(index, wave, scenEnemy, pilots, mechs, rom, rng, minleve
 	}
 return rom;
 }
+// let arr = [[]];
+//for for ( i = 0; j < index; i+=0 ) {
+//do {
+//let v = math.rand();
+//let w = math.rand();
+//} while (arr[v][w]);   // Do executes any time arr[v][w] already exists, once it doesn't we set it to existing and move on
+//arr[v][w] = 1;
+// do whatever you wanted to do with v and w
+//}
 
 
 
@@ -59,15 +68,15 @@ function allyRandomize(index, wave, scenAlly, pilots, mechs, rom, rng, minlevel,
 		}
 		rom[(scenAlly[1][wave]+(i*4))]=rand(minlevel, maxlevel, rng); //level
 		rom[(scenAlly[2][wave]+(i*4))]=pick_rand(mechs, rng); //mechs 
-//		rom[(scenarioOneAlly[3][wave]+(i*4))]=Donotchangeyet;
+//		rom[(scenAlly[3][wave]+(i*4))]=Donotchangeyet;
 	}
 //	rom[scenarioOneAlly[4][0]]=rand(minGridX, maxGridX, rng); // x position
 //	rom[scenarioOneAlly[5][0]]=rand(minGridY, maxGridY, rng); // y position
 //	for ( let i = 1; i < 10; i+=1)
 //	{
-//		rom[(scenarioOneAlly[4][0]+((i-1)*3))]=rand(minGridX, maxGridX, rng); // x position
-//		rom[(scenarioOneAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
-//		rom[(scenarioOneAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
+//		rom[(scenAlly[4][0]+((i-1)*3))]=rand(minGridX, maxGridX, rng); // x position
+//		rom[(scenAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
+//		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
 //	}
 	return rom;
 }
