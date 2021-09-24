@@ -1,11 +1,17 @@
 function randomize(rom, rng, opts) {
 
+	let forceDespawnPilots = 1;
 	//scenario 1
 	enemyRandomize(16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, rom, rng, 3, 13, 1, 6, 23, 23);  // scenario 1 enemy on map spawn
 	enemyRandomize(5, 1, scenarioOneEnemy, pilotList, spaceEnemyMechs, rom, rng, 5, 15, 1, 6, 23, 23);  // scenario 1 reinforcements
-	allyRandomize(11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, rom, rng, 1, 8, 23, 23);	// scenario 1 ally spawn
+	allyRandomize(11, 1, scenarioOneAlly, pilotList, spaceAllyMechs, rom, rng, 1, 8, 23, 23);	// scenario 1 ally spawn
 	// Force Denim etc as they leave the map
-	
+	if (forceDespawnPilots)
+	{
+		rom[scenarioOneEnemy[0][0]+24]=0x6d;
+		rom[scenarioOneEnemy[0][0]+32]=0x6e;
+		rom[scenarioOneEnemy[0][0]+40]=0x6f;
+	}
 	
 	
 	// scenario 2
@@ -16,7 +22,7 @@ function randomize(rom, rng, opts) {
 	// newAllyPilot(0, newPilotScenTwo, pilotList, rom, rng, 4, 9);
 	
 	// scenario 3
-	enemyRandomize(16, 0, scenarioThreeEnemy, pilotlist, spaceEnemyMechs, rom, rng, 6, 16, 1, 7, 0, 0);
+	enemyRandomize(16, 0, scenarioThreeEnemy, pilotList, spaceEnemyMechs, rom, rng, 6, 16, 1, 7, 0, 0);
 	// possible new pilot acquisition?
 	// newAllyPilot(0, newPilotScenThree, pilotList, rom, rng, 5, 10);
 	
