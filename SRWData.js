@@ -1503,6 +1503,545 @@ let scenarioThirtyFiveEnemy = [ // 10 initial,
 	]
 ];
 
+let scenarioThirtySixEnemy = [ // 3 initial,  FINAL SCENARIO AGAINST SHU!
+//Pilots 
+	[
+	0x031ba8,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031ba9,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031baa,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031bab,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031ba6,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031ba7,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031bad,
+//	0x03ba95
+	]
+];
+
+
+let scenarioThirtySevenEnemy = [ // 32 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031bca,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031bcb,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031bcc,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031bcd,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031bc8,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031bc9,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031bcf,
+//	0x03ba95
+	]
+];
+
+let scenarioThirtyEightEnemy = [ // 17 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031cd4,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031cd5,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031cd6,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031cd7,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031cd2,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031cd3,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031cd9,
+//	0x03ba95
+	]
+];
+
+let scenarioThirtyNineEnemy = [ // 30 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031d66,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031d67,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031d68,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031d69,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031d64,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031d65,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031d6b,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtyEnemy = [ // 10 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031e6a,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031e6b,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031e6c,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031e6d,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031e68,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031e69,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031e6f,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtyOneEnemy = [ // 14 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031ec4,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031ec5,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031ec6,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031ec7,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031ec2,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031ec3,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031ec9,
+//	0x03ba95
+	]
+];
+
+let scenarioFourtyTwoEnemy = [ // 15 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031f3e,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031f3f,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031f40,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031f41,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031f3c,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031f3d,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031f43,
+//	0x03ba95
+	]
+];
+
+let scenarioFourtyThreeEnemy = [ // 22 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x031fe0,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x031fe1,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x031fe2,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x031fe3,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x031fde,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x031fdf,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x031fe5,
+//	0x03ba95
+	]
+];
+
+let scenarioFourtyFourEnemy = [ // 30 initial,  Unsure of where this scenario is
+//Pilots 
+	[
+	0x0321de,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x0321df,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x0321e0,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x0321e1,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x0321dc,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x0321dd,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x0321e3,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtyFiveEnemy = [ // 2 ?  weird scenario
+//Pilots 
+	[
+	0x0322e2,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x0322e3,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x0322e4,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x0322e5,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x0322e0,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x0322e1,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x0322e7,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtySixEnemy = [ // 1 ?  weird scenario
+//Pilots 
+	[
+	0x032308,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x032309,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x03230a,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x03230b,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x032306,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x032307,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x03230d,
+//	0x03ba95
+	]
+];
+
+let scenarioFourtySevenEnemy = [ // 30 ?  weird scenario
+//Pilots 
+	[
+	0x03231a,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x03231b,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x03231c,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x03231d,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x032318,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x032319,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x03231f,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtyEightEnemy = [ // 37 ?  weird scenario
+//Pilots 
+	[
+	0x032414,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x032415,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x032416,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x032417,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x032412,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x032413,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x032419,
+//	0x03ba95
+	]
+];
+
+
+let scenarioFourtyNineEnemy = [ // 21 ?  weird scenario
+//Pilots 
+	[
+	0x032546,
+//	0x03ba90
+	],
+	//levels
+	[
+	0x032547,
+//	0x03ba91
+	],
+//	//mechs
+	[
+	0x032548,
+//	0x03ba92
+	],
+	//turnstoactivation
+	[
+	0x032549,
+//	0x03ba93
+	],
+	//X position max x17
+	[
+	0x032544,
+//	0x03ba8e
+	],
+	//Y position max x17
+	[
+	0x032545,
+//	0x03ba8f
+	],
+	//color and team
+	[
+	0x03254b,
+//	0x03ba95
+	]
+];
+
 
 
 
