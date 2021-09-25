@@ -25,19 +25,19 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 				if (crcCheck === 2755626416) {
 					app.correctFileCRCcheck = true;
 						app.romType = 'SRW32.0M';
-						alert("Super Robot Wars 3 translation by Aeon Genesis 2.0 with Music adjusted");
+						alert("The provided rom is Super Robot Wars 3 translated by Aeon Genesis 2.0 with Music adjusted");
 					} else if (crcCheck === 2235440940) {
 						app.correctFileCRCcheck = true;
 						app.romType = 'SRW32.0';
-						alert("Super Robot Wars 3 translation by Aeon Genesis 2.0");
+						alert("The provided rom is Super Robot Wars 3 translated by Aeon Genesis 2.0");
 					} else if (crcCheck === 2282947228) {
 						app.correctFileCRCcheck = true;
 						app.romType = 'SRW3JP';
-						alert("Super Robot Wars 3 Japanese");
+						alert("The provided rom is Super Robot Wars 3 Japanese");
 					} else if (crcCheck === 2157445912) {
 						app.correctFileCRCcheck = true;
 						app.romType = 'SRW31.0';
-						alert("This is the outdated 1.0 translation by Aeon Genesis");
+						alert("The provided rom is the outdated 1.0 translation by Aeon Genesis");
 					} else {
 						app.correctFileCRCcheck = false;
 						alert("You have selected an unrecognized Super Robot Wars 3 rom or a file that is not applicable to this Randomizer");
@@ -78,16 +78,6 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 				}
 			reader.readAsArrayBuffer(selectedFile);
 			},
-/*			getRowClass: function(loc_item) {
-				if (loc_item[1].includes('Key'))
-					return 'tr-green';
-				if (loc_item[1] === 'freeon' || loc_item[1] === 'suction' || loc_item[1] === 'gil')
-					return 'tr-yellow';
-				return '';
-			},*/
-/*			orderedLocItems: function(loc_items) {
-				return loc_items.sort((a, b) => (a[0] > b[1]) ? 1: -1)
-			}*/
 		},			
 		computed: {
 			createBlobURL: function() {
