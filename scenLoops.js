@@ -11,6 +11,8 @@ function pick_rand ( arr, rng, min=0 )
 	return arr[rand(min, arr.length-1, rng)];
 }
 
+
+	
 /*
 Index defines where the table ends
 wave indicates how many waves in we are ( 0 is map spawn, 1 is first set of reinforcements, 2 is another set of reinforcements )
@@ -21,7 +23,7 @@ rom is the file
 rng is the seed
 */
 //enemy spawns
-function enemyRandomize(index, wave, scenEnemy, pilots, mechs, rom, rng, minlevel, maxlevel, minturn, maxturn, maxGridX, maxGridY, minGridX=0, minGridY=0 )   
+function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rng, minlevel, maxlevel, minturn, maxturn, maxGridX, maxGridY, minGridX=0, minGridY=0 )   
 {
 	for ( let i = 0; i < index; i+=1)
 	{
@@ -32,8 +34,9 @@ function enemyRandomize(index, wave, scenEnemy, pilots, mechs, rom, rng, minleve
 //			rom[(scenEnemy[4][wave]+(i*8))]=rand(minGridX, maxGridX, rng); // x position
 //			rom[(scenEnemy[5][wave]+(i*8))]=rand(minGridY, maxGridY, rng); // y position
 //			rom[(scenEnemy[6][wave]+(i*8))]=Donotchangeyet;
+		spoilLog = pushSpoilEnemy(spoilLog, rom, scenEnemy, wave, i);
 	}
-return rom;
+return [rom, spoilLog];
 }
 // let arr = [[]];
 //for for ( i = 0; j < index; i+=0 ) {
@@ -57,7 +60,7 @@ rom is the file
 rng is the seed
 */
 //ally spawns
-function allyRandomize(index, wave, scenAlly, pilots, mechs, rom, rng, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
+function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
 {
 	for ( let i = 0; i < index; i+=1)
 	{
@@ -78,7 +81,7 @@ function allyRandomize(index, wave, scenAlly, pilots, mechs, rom, rng, minlevel,
 //		rom[(scenAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
 //	}
-	return rom;
+	return [rom, spoilLog];
 }
 
 //For getting pilots between stages

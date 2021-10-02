@@ -8,6 +8,7 @@
 	<script src="SRWData.js"></script>
 	<script src="scenLoops.js"></script>
 	<script src="SRW3Rando.js"></script>
+	<script src="SpoilerGeneration.js"></script>
 	<meta charset="utf-8">	
 		<title>Super Robot Wars 3 Randomizer</title>
 	<link rel="stylesheet" href="randoHTML.css">
@@ -44,7 +45,13 @@
         </div>
 
 		<div class="btn-margin">
-			<a class="button" :disabled="randomized===false" :download="fname" :href="createBlobURL">Download Randomized ROM</a>
+			<a class="button" :disabled="randomized===false" :download="fname" :href="randomSRW">Download Randomized ROM</a>
+		</div>
+		
+		<p></p>
+
+		<div class="btn-margin">
+			<a class="button" :disabled="randomized===false" :download="outputSpoilerLog" :href="textSpoilLog">Download Spoiler Log</a>
 		</div>
 		
 		</section>

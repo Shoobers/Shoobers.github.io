@@ -6,6 +6,7 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 		correctFileCRCcheck: null,
 		randomized: false,
 		randomized_rom: null,
+		spoilerLog: "",
 		showing_spoilers: false,
 		romType: 'EU',
 		seed: "",
@@ -63,16 +64,15 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 				let view = new Uint8Array(reader.result);
 				let return_val;
 				try {
-					return_val = randomize(view, myrng, {romType: app.romType});
+					return_val = randomize(view, myrng, {romType: app.romType}, {romType: app.spoilerLog});
 				}
 				catch(e) {
 					alert("error randomizing: "+e);
 					console.error(e);
 					throw e;
 				}
-/*				app.spheres = return_val[0];
-				app.unobtainable = return_val[1];   */
 				app.randomized_rom = return_val[0];    
+				app.spoilLog = return_val[1];
 				app.randomized = true;
 				reader.abort();
 				}
@@ -80,15 +80,26 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 			},
 		},			
 		computed: {
-			createBlobURL: function() {
-			if (!this.randomized) return '';
-
-			let blob = new Blob([this.randomized_rom], {
-				type: 'application/octet-stream'
-			});
+			randomSRW: function() {
+				if (!this.randomized) return '';
+	
+				let blob = new Blob([this.randomized_rom], {
+					type: 'application/octet-stream'
+				});
 			
-			return window.URL.createObjectURL(blob);
+				return window.URL.createObjectURL(blob);
 			},
+			
+			textSpoilLog: function() {
+				if (!this.randomized) return '';
+	
+				let blob = new Blob([this.spoilLog], {
+					type: 'text/plain'
+				});
+			
+				return window.URL.createObjectURL(blob);
+			},
+			
 			fname: function() {
 				let dt = new Date();
 				if( this.romType === 'SRW32.0M') {
@@ -99,6 +110,19 @@ window.crc32=function(r){for(var a,o=[],c=0;c<256;c++){a=c;for(var f=0;f<8;f++)a
 					return `SRW31.0e-${dt.toJSON()}.sfc`;
 				} else {
 					return `SRW3JP-${dt.toJSON()}.sfc`;
+				}
+			},
+			
+			outputSpoilerLog: function() {
+				let dt = new Date();
+				if( this.romType === 'SRW32.0M') {
+					return `spoilSRW32.0eM-${dt.toJSON()}.txt`;
+				} else if (this.romType === 'SRW32.0') {
+					return `spoilSRW32.0e-${dt.toJSON()}.txt`;
+				} else if (this.romType = 'SRW31.0') {
+					return `spoilSRW31.0e-${dt.toJSON()}.txt`;
+				} else {
+					return `spoilSRW3JP-${dt.toJSON()}.txt`;
 				}
 			}
 		}
