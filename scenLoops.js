@@ -23,20 +23,29 @@ rom is the file
 rng is the seed
 */
 //enemy spawns
-function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rng, minlevel, maxlevel, minturn, maxturn, maxGridX, maxGridY, minGridX=0, minGridY=0 )   
+function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, minturn, maxturn, maxGridX, maxGridY, minGridX=0, minGridY=0 )   
 {
+	let newX;
+	let newY;
 	for ( let i = 0; i < index; i+=1)
 	{
 		rom[(scenEnemy[0][wave]+(i*8))]=pick_rand(pilots, rng);  //Pilots
 		rom[(scenEnemy[1][wave]+(i*8))]=rand(minlevel, maxlevel, rng);  //level
 		rom[(scenEnemy[2][wave]+(i*8))]=pick_rand(mechs, rng); //mechs
 		rom[(scenEnemy[3][wave]+(i*8))]=rand(minturn, maxturn, rng); // turns until activation
-//			rom[(scenEnemy[4][wave]+(i*8))]=rand(minGridX, maxGridX, rng); // x position
-//			rom[(scenEnemy[5][wave]+(i*8))]=rand(minGridY, maxGridY, rng); // y position
+		if ( !(maxGridX == 0) )
+		{
+			do {
+				newX=rand(minGridX, maxGridX, rng); // x position
+				newY=rand(minGridY, maxGridY, rng); // y position
+			} while ( arrgrid[newX, newY] )
+			rom[(scenEnemy[4][wave]+(i*8))]=newX; // x position
+			rom[(scenEnemy[5][wave]+(i*8))]=newY; // y position
+		}
 //			rom[(scenEnemy[6][wave]+(i*8))]=Donotchangeyet;
 		spoilLog = pushSpoilEnemy(spoilLog, rom, scenEnemy, wave, i);
 	}
-return [rom, spoilLog];
+return [rom, spoilLog, arrgrid];
 }
 // let arr = [[]];
 //for for ( i = 0; j < index; i+=0 ) {
@@ -60,7 +69,7 @@ rom is the file
 rng is the seed
 */
 //ally spawns
-function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
+function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
 {
 	for ( let i = 0; i < index; i+=1)
 	{
@@ -81,7 +90,7 @@ function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng,
 //		rom[(scenAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
 //	}
-	return [rom, spoilLog];
+	return [rom, spoilLog, grid];
 }
 
 //For getting pilots between stages
@@ -93,4 +102,17 @@ function newAllyPilot(index, scenAlly, pilots, rom, rng, minLevel, maxLevel)
 		rom[(scenAlly[0][0]+(i*2))] = pick_rand(pilots, rng);
 		rom[(scenAlly[0][1]+(i*2))] = rand(minLevel, maxLevel, rng);
 	}
+}
+
+//Preserve the random area that Allies can spawn in
+function setAllyAreaSquare(arrgrid, minX, minY, maxX, maxY)
+{
+	for(x = minX; x <= maxX; x++)
+	{
+		for(y = minY; y < maxY; y++)
+		{
+			arrgrid[x, y] = 1;
+		}
+	}
+	return arrgrid;
 }
