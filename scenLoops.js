@@ -38,7 +38,7 @@ function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rn
 			do {
 				newX=rand(minGridX, maxGridX, rng); // x position
 				newY=rand(minGridY, maxGridY, rng); // y position
-			} while ( arrgrid[newX, newY] )
+			} while ( arrgrid[newX, newY] )	
 			rom[(scenEnemy[4][wave]+(i*8))]=newX; // x position
 			rom[(scenEnemy[5][wave]+(i*8))]=newY; // y position
 		}
@@ -71,9 +71,10 @@ rng is the seed
 //ally spawns
 function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
 {
+	let v;
 	for ( let i = 0; i < index; i+=1)
 	{
-		let v = pick_rand(pilots, rng);
+		v = pick_rand(pilots, rng);
 		rom[(scenAlly[0][wave]+(i*4))]=v//pilots
 		if ( i > 0 && i < (index-1) ) {	  // -1 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
 			rom[(scenarioOneAlly[6][wave]+((i-1)*3))]=v;
@@ -90,7 +91,7 @@ function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng,
 //		rom[(scenAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
 //	}
-	return [rom, spoilLog, grid];
+	return [rom, spoilLog, arrgrid];
 }
 
 //For getting pilots between stages
@@ -107,9 +108,9 @@ function newAllyPilot(index, scenAlly, pilots, rom, rng, minLevel, maxLevel)
 //Preserve the random area that Allies can spawn in
 function setAllyAreaSquare(arrgrid, minX, minY, maxX, maxY)
 {
-	for(x = minX; x <= maxX; x++)
+	for(let x = minX; x <= maxX; x++)
 	{
-		for(y = minY; y < maxY; y++)
+		for(let y = minY; y < maxY; y++)
 		{
 			arrgrid[x, y] = 1;
 		}
