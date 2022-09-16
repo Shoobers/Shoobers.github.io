@@ -15,8 +15,8 @@ function randomize(rom, rng, opts, log) {
 	randSplit[1]+='\r\nScenario 1 Ally Set Up\r\n\r\n';
 	randSplit = allyRandomize(randSplit[1], 11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
 	// Force Denim etc as they leave the map
-	let scenarioOneDespawn = [ 3, randSplit[0][scenarioOneEnemy[0][0]+24], randSplit[0][scenarioOneEnemy[0][0]+32], randSplit[0][scenarioOneEnemy[0][0]+40]];
-	randSplit = enemyDespawn(randSplit[1], scenarioOneDespawn, randSplit[0], randSplit[2], scenarioOneDespawnAddr );
+//	let scenarioOneDespawn = [ 3, randSplit[0][scenarioOneEnemy[0][0]+24], randSplit[0][scenarioOneEnemy[0][0]+32], randSplit[0][scenarioOneEnemy[0][0]+40]];
+//	randSplit = enemyDespawn(randSplit[1], scenarioOneDespawn, randSplit[0], randSplit[2], scenarioOneDespawnAddr );
 //	if (forceDespawnPilots)
 //	{
 //		randSplit[0][scenarioOneEnemy[0][0]+24]=0x6d;
