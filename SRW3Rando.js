@@ -15,14 +15,18 @@ function randomize(rom, rng, opts, log) {
 	randSplit[1]+='\r\nScenario 1 Ally Set Up\r\n\r\n';
 	randSplit = allyRandomize(randSplit[1], 11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
 	// Force Denim etc as they leave the map
-	if (forceDespawnPilots)
-	{
-		randSplit[0][scenarioOneEnemy[0][0]+24]=0x6d;
-		randSplit[0][scenarioOneEnemy[0][0]+32]=0x6e;
-		randSplit[0][scenarioOneEnemy[0][0]+40]=0x6f;
-	}
-	randSplit[2] = grid;
+	let scenarioOneDespawn = [ 3, randSplit[0][scenarioOneEnemy[0][0]+24], randSplit[0][scenarioOneEnemy[0][0]+32], randSplit[0][scenarioOneEnemy[0][0]+40]];
+	randSplit = enemyDespawn(randSplit[1], scenarioOneDespawn, randSplit[0], randSplit[2], scenarioOneDespawnAddr );
+//	if (forceDespawnPilots)
+//	{
+//		randSplit[0][scenarioOneEnemy[0][0]+24]=0x6d;
+//		randSplit[0][scenarioOneEnemy[0][0]+32]=0x6e;
+//		randSplit[0][scenarioOneEnemy[0][0]+40]=0x6f;
+//	}
+
 	// scenario 2
+
+	randSplit[2] = grid;
 	randSplit[1]+='\r\nScenario 2 Enemy Spawn\r\n\r\n';
 	randSplit = enemyRandomize(randSplit[1], 17,0, scenarioTwoEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 5, 12, 1, 4, 0, 0); // scenario 2 enemy on map spawn  // unknown gridsize
 	// I don't think there's scenario 2 reinforcements
