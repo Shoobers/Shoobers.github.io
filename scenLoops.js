@@ -70,13 +70,13 @@ function enemyDespawn ( spoilLog, despawnArray, rom, arrgrid, despawnAddr )
 			{
 				spoilLog+= 'k = ' + k + ' ' + rom[despawnAddr[j+1][k+1]] + ' ';
 				rom[despawnAddr[j+1][k+1]]=rom[despawnArray[i+1]];
-				spoilLog+= rom[despawnAddr[j+1][k+1]];
+				spoilLog+= rom[despawnAddr[j+1][k+1]] + ' ';
 			}
 			spoilLog += '\r\n';
 		}
-		spoilLog += '/r/n';
+		spoilLog += '\r\n';
 	}
-	spoilLog += '/r/n';
+	spoilLog += '\r\n';
 	return [rom, spoilLog, arrgrid];
 }
 
