@@ -59,11 +59,16 @@ return [rom, spoilLog, arrgrid];
 
 function enemyDespawn ( spoilLog, despawnArray, rom, arrgrid, despawnAddr )
 {
-	for ( let i = 0; i < despawnArray[0];i+=1)
+	for ( let i = 0; i < despawnArray[0]; i+=1)
 	{
-		for ( let j = 0, j < scenarioOneDespawnAddr[0], j+=1)
+		for ( let j = 0; j < despawnAddr[0]; j+=1)
 		{
-			rom[despawnAddr[j+1]]=rom[despawnArray[i+1]];
+			for ( let k = 0; despawnAddr[j+1][0]; k+=1 )
+			{
+				alert(rom[despawnAddr[j+1][k]]);
+				alert(rom[despawnArray[i+1]]);
+				rom[despawnAddr[j+1][k]]=rom[despawnArray[i+1]];
+			}
 		}
 	}
 	return [rom, spoilLog, arrgrid];

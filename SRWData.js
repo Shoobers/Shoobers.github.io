@@ -2140,7 +2140,7 @@ let scenarioTenAlly = [  // 2 long // scenario 14
 	]
 ];
 
-let scenarioOneDespawnAddr = [ [5, 0x03BA38, 0x03BA54, 0x03BA59, 0x03BA5D], [3, 0x03BA48, 0x03BA4D], [3, 0x03BA3C, 0x03BA41]]; 
+let scenarioOneDespawnAddr = [ 4, [5, 0x03BA38, 0x03BA54, 0x03BA59, 0x03BA5D], [3, 0x03BA48, 0x03BA4D], [3, 0x03BA3C, 0x03BA41]]; 
 
 
 /*  Unsure if these actually control the data I thought they did.
