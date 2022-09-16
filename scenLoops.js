@@ -65,7 +65,7 @@ function enemyDespawn ( spoilLog, despawnArray, rom, arrgrid, despawnAddr )
 		{
 			for ( let k = 0; k < despawnAddr[j+1][0]; k+=1 )
 			{
-				rom[despawnAddr[j+1][k]]=rom[despawnArray[i+1]];
+				rom[despawnAddr[j+1][k+1]]=rom[despawnArray[i+1]];
 			}
 		}
 	}
