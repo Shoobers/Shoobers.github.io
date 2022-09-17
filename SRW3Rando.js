@@ -4,13 +4,10 @@ function randomize(rom, rng, opts, log) {
 	let grid = [];
 	let randSplit = [rom, log, grid];  // randSplit[0] is the rom, randSplit[1] is the spoiler log
 	
-	alert(grid.toString());
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
 	randSplit[2]=setGrid(randSplit[2], 22, 23);
-	alert(randSplit[2].toString());
 	//scenario 1
 	randSplit[2]=setAllyAreaSquare(randSplit[2], 0, 15, 8, 22);
-	alert(randSplit[2].toString());
 	randSplit[1]+='\r\nScenario 1 Enemy Spawn\r\n\r\n';
 	randSplit = enemyRandomize(randSplit[1], 16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 3, 13, 1, 6, 22, 23);  // scenario 1 enemy on map spawn
 	randSplit[1]+='\r\nScenario 1 Enemy Reinforcements\r\n\r\n';
