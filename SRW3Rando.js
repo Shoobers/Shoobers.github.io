@@ -6,10 +6,13 @@ function randomize(rom, rng, opts, log) {
 	
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
 	//scenario 1
+	alert('Entering set ally square');
 	randSplit[2]=setAllyAreaSquare(randSplit[2], 0, 15, 8, 22);
 	randSplit[1]+='\r\nScenario 1 Enemy Spawn\r\n\r\n';
+	alert('Entering set enemy randomizer 1');
 	randSplit = enemyRandomize(randSplit[1], 16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 3, 13, 1, 6, 22, 23);  // scenario 1 enemy on map spawn
 	randSplit[1]+='\r\nScenario 1 Enemy Reinforcements\r\n\r\n';
+	alert('Entering set enemy randomizer 2');
 	randSplit = enemyRandomize(randSplit[1], 5, 1, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 5, 15, 1, 6, 22, 23);  // scenario 1 reinforcements
 	randSplit[1]+='\r\nScenario 1 Ally Set Up\r\n\r\n';
 //	randSplit = allyRandomize(randSplit[1], 11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
