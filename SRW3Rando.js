@@ -1,5 +1,5 @@
 function randomize(rom, rng, opts, log) {
-	// let forceDespawnPilots = 1;
+	let forceDespawnPilots = 1;
 	// I think I coded myself into a corner and thus decided to try the below to see if this works
 	grid = [ , ];
 	let randSplit = [rom, log, grid];  // randSplit[0] is the rom, randSplit[1] is the spoiler log
