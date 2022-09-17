@@ -130,12 +130,12 @@ function newAllyPilot(index, scenAlly, pilots, rom, rng, minLevel, maxLevel)
 function setGrid(arrgrid, x, y)
 {
 	alert(x + ' ');
-	for( i = 0; i < x; i+=1)
+	for( i = 0; i <= x; i+=1)
 	{
-		alert(x + ' ');
-		for( j = 0; j < y; j+=1)
+		alert(y + ' ');
+		for( j = 0; j <= y; j+=1)
 		{
-			arrgrid[x][y] = 0;
+			arrgrid[i][j] = 0;
 		}
 	}
 	return arrgrid;
