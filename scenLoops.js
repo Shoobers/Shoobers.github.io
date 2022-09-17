@@ -34,18 +34,18 @@ function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rn
 		rom[(scenEnemy[2][wave]+(i*8))]=pick_rand(mechs, rng); //mechs
 		rom[(scenEnemy[3][wave]+(i*8))]=rand(minturn, maxturn, rng); // turns until activation
 //		if ( !(maxGridX == 0) )
-//		{
+		{
 			do {
 				newX=rand(minGridX, maxGridX, rng); // x position
 				newY=rand(minGridY, maxGridY, rng); // y position
-				alert(newX + ' ' + newY);
+				alert(newX + ' ' + newY + ' ' + arrgrid[newX, newY]);
 			}
 			while ( arrgrid[newX, newY] )
 			alert('left do loop');
 			arrgrid[newX, newY] = 1;
 			rom[(scenEnemy[4][wave]+(i*8))]=newX; // x position
 			rom[(scenEnemy[5][wave]+(i*8))]=newY; // y position
-//		}
+		}
 //		rom[(scenEnemy[6][wave]+(i*8))]=Donotchangeyet;
 		spoilLog = pushSpoilEnemy(spoilLog, rom, scenEnemy, wave, i);
 	}
