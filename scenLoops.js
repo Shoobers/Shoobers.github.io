@@ -145,8 +145,10 @@ function setAllyAreaSquare(arrgrid, minX, minY, maxX, maxY)
 {
 	for(let x = minX; x <= maxX; x++)
 	{
+		alert(x + ' ');
 		for(let y = minY; y < maxY; y++)
 		{
+			alert(x + ' ');
 			arrgrid[x][y] = 1;
 		}
 	}
