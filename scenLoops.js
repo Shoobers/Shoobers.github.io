@@ -38,11 +38,12 @@ function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rn
 			do {
 				newX=rand(minGridX, maxGridX, rng); // x position
 				newY=rand(minGridY, maxGridY, rng); // y position
-			} while ( arrgrid[newX, newY] )	
+			}
+			while ( arrgrid[newX, newY] )	
 			rom[(scenEnemy[4][wave]+(i*8))]=newX; // x position
 			rom[(scenEnemy[5][wave]+(i*8))]=newY; // y position
 		}
-//			rom[(scenEnemy[6][wave]+(i*8))]=Donotchangeyet;
+//		rom[(scenEnemy[6][wave]+(i*8))]=Donotchangeyet;
 		spoilLog = pushSpoilEnemy(spoilLog, rom, scenEnemy, wave, i);
 	}
 return [rom, spoilLog, arrgrid];
@@ -126,6 +127,7 @@ function newAllyPilot(index, scenAlly, pilots, rom, rng, minLevel, maxLevel)
 //Preserve the random area that Allies can spawn in
 function setAllyAreaSquare(arrgrid, minX, minY, maxX, maxY)
 {
+	arrgrid = null;
 	for(let x = minX; x <= maxX; x++)
 	{
 		for(let y = minY; y < maxY; y++)

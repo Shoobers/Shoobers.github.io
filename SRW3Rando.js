@@ -12,16 +12,12 @@ function randomize(rom, rng, opts, log) {
 	randSplit[1]+='\r\nScenario 1 Enemy Reinforcements\r\n\r\n';
 	randSplit = enemyRandomize(randSplit[1], 5, 1, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 5, 15, 1, 6, 22, 23);  // scenario 1 reinforcements
 	randSplit[1]+='\r\nScenario 1 Ally Set Up\r\n\r\n';
-	randSplit = allyRandomize(randSplit[1], 11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
-	// Force Denim etc as they leave the map
+//	randSplit = allyRandomize(randSplit[1], 11, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
+
+	// Force the original Denim/etc. characters to leave  the map as they should
 	let scenarioOneDespawn = [ 3, randSplit[0][scenarioOneEnemy[0][0]+24], randSplit[0][scenarioOneEnemy[0][0]+32], randSplit[0][scenarioOneEnemy[0][0]+40]];
 	randSplit = enemyDespawn(randSplit[1], scenarioOneDespawn, randSplit[0], randSplit[2], scenarioOneDespawnAddr );
-//	if (forceDespawnPilots)
-//	{
-//		randSplit[0][scenarioOneEnemy[0][0]+24]=0x6d;
-//		randSplit[0][scenarioOneEnemy[0][0]+32]=0x6e;
-//		randSplit[0][scenarioOneEnemy[0][0]+40]=0x6f;
-//	}
+
 
 	// scenario 2
 
