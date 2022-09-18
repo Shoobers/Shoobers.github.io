@@ -115,7 +115,7 @@ function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng,
 		} while ( !arrgrid[newX][newY] )
 		arrgrid[newX][newY] = 0;
 		rom[(scenAlly[4][0]+((i-1)*3))]=newX; // x position
-		rom[(scenAlly[5][0]+((i-1)*3))]=newY// y position
+		rom[(scenAlly[5][0]+((i-1)*3))]=newY; // y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
 	}
 	return [rom, spoilLog, arrgrid];
