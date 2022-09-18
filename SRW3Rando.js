@@ -3,7 +3,8 @@ function randomize(rom, rng, opts, log) {
 	// I think I coded myself into a corner and thus decided to try the below to see if this works
 	let grid = [];
 	let randSplit = [rom, log, grid];  // randSplit[0] is the rom, randSplit[1] is the spoiler log
-	alert('start');
+
+
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
 	randSplit[2]=setGrid(randSplit[2], 22, 23);
 	//scenario 1
