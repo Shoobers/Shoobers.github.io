@@ -20,7 +20,6 @@ function randomize(rom, rng, opts, log) {
 	let scenarioOneDespawn = [ 3, randSplit[0][scenarioOneEnemy[0][0]+24], randSplit[0][scenarioOneEnemy[0][0]+32], randSplit[0][scenarioOneEnemy[0][0]+40]];
 	randSplit = enemyDespawn(randSplit[1], scenarioOneDespawn, randSplit[0], randSplit[2], scenarioOneDespawnAddr );
 
-	alert('Moving to Scenario 2');
 	// scenario 2
 
 	randSplit[2] = grid;
