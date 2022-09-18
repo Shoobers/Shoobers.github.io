@@ -112,6 +112,7 @@ function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng,
 		do {
 			newX = rand(minGridX, maxGridX, rng);
 			newY = rand(minGridY, maxGridY, rng);
+			alert( newX + ' ' + newY + ' ';
 		} while ( !arrgrid[newX][newY] )
 		arrgrid[newX][newY] = 0;
 		rom[(scenAlly[4][0]+((i-1)*3))]=newX; // x position
