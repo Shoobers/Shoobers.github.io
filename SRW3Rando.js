@@ -7,8 +7,8 @@ function randomize(rom, rng, opts, log) {
 
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
 	randSplit[2]=setGrid(randSplit[2], 22, 23);
-	//scenario 1
-	randSplit[2]=setAllyAreaSquare(randSplit[2], 0, 15, 8, 22);
+	//scenario 1 'Omen'
+	randSplit[2]=setAllyAreaSquare(randSplit[2], 0, 13, 10, 23);
 	randSplit[1]+='\r\nScenario 1 Enemy Spawn\r\n\r\n';
 	randSplit = enemyRandomize(randSplit[1], 16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 3, 13, 1, 6, 22, 23);  // scenario 1 enemy on map spawn
 	randSplit[1]+='\r\nScenario 1 Enemy Reinforcements\r\n\r\n';

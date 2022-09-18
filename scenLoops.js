@@ -39,8 +39,8 @@ function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rn
 				newX=rand(minGridX, maxGridX, rng); // x position
 				newY=rand(minGridY, maxGridY, rng); // y position
 			}
-			while ( arrgrid[newX][newY] )
-			arrgrid[newX][newY] = 1;
+			while ( arrgrid[newX][newY] == 1 || arrgrid[newX][newY] == 2  )
+			arrgrid[newX][newY] = 2;
 			rom[(scenEnemy[4][wave]+(i*8))]=newX; // x position
 			rom[(scenEnemy[5][wave]+(i*8))]=newY; // y position
 		}
@@ -61,20 +61,20 @@ function enemyRandomize(spoilLog, index, wave, scenEnemy, pilots, mechs, rom, rn
 
 function enemyDespawn ( spoilLog, despawnArray, rom, arrgrid, despawnAddr )
 {
-	spoilLog += despawnArray[0] + ' ' + despawnArray[1] + ' ' + despawnArray[2] + ' ' + despawnArray[3] + '\n';
+//	spoilLog += despawnArray[0] + ' ' + despawnArray[1] + ' ' + despawnArray[2] + ' ' + despawnArray[3] + '\n';
 	for ( let j = 0; j < despawnAddr[0]; j+=1)
 	{
-		spoilLog+= 'j = ' + j + ' ';
+//		spoilLog+= 'j = ' + j + ' ';
 		for ( let k = 0; k < despawnAddr[(j+1)][0]; k+=1 )
 		{
-			spoilLog += 'k = ' + k + ' ' + rom[despawnAddr[j+1][k+1]] + ' ' + despawnArray[j+1] + '\r\n';
+//			spoilLog += 'k = ' + k + ' ' + rom[despawnAddr[j+1][k+1]] + ' ' + despawnArray[j+1] + '\r\n';
 			rom[despawnAddr[j+1][k+1]]=despawnArray[j+1];
-			spoilLog += rom[despawnAddr[j+1][k+1]] + ' ' + despawnArray[j+1];
+//			spoilLog += rom[despawnAddr[j+1][k+1]] + ' ' + despawnArray[j+1];
 		}
-		spoilLog += '\r\n';
+//		spoilLog += '\r\n';
 	}
-	spoilLog += despawnArray[0] + ' ' + despawnArray[1] + ' ' + despawnArray[2] + ' ' + despawnArray[3] + '\n';
-	spoilLog += '\r\n';
+//	spoilLog += despawnArray[0] + ' ' + despawnArray[1] + ' ' + despawnArray[2] + ' ' + despawnArray[3] + '\n';
+//	spoilLog += '\r\n';
 	return [rom, spoilLog, arrgrid];
 }
 
@@ -92,10 +92,12 @@ rng is the seed
 function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
 {
 	let v;
+	let newX;
+	let newY;
 	for ( let i = 0; i < index; i+=1)
 	{
 		v = pick_rand(pilots, rng);
-		rom[(scenAlly[0][wave]+(i*4))]=v//pilots
+		rom[(scenAlly[0][wave]+(i*4))]=v;//pilots
 		if ( i > 0 && i < (index-1) ) {	  // -1 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
 			rom[(scenarioOneAlly[6][wave]+((i-1)*3))]=v;
 		}
@@ -105,12 +107,17 @@ function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng,
 	}
 //	rom[scenarioOneAlly[4][0]]=rand(minGridX, maxGridX, rng); // x position
 //	rom[scenarioOneAlly[5][0]]=rand(minGridY, maxGridY, rng); // y position
-//	for ( let i = 1; i < 10; i+=1)
-//	{
-//		rom[(scenAlly[4][0]+((i-1)*3))]=rand(minGridX, maxGridX, rng); // x position
-//		rom[(scenAlly[5][0]+((i-1)*3))]=rand(minGridY, maxGridY, rng); // y position
+	for ( let i = 1; i < 10; i+=1)
+	{
+		do {
+			newX = rand(minGridX, maxGridX, rng);
+			newY = rand(minGridY, maxGridY, rng);
+		} while ( !arrgrid[newX][newY] )
+		arrgrid[newX][newY] = 0;
+		rom[(scenAlly[4][0]+((i-1)*3))]=newX; // x position
+		rom[(scenAlly[5][0]+((i-1)*3))]=newY// y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
-//	}
+	}
 	return [rom, spoilLog, arrgrid];
 }
 
