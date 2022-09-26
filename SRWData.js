@@ -2065,11 +2065,11 @@ let scenarioOneAlly = [  // 11 long
 	],
 	//x position  ** remember, first slot is 2 bytes, everything after is 3 bytes!! max x17
 	[
-	0x030312
+	0x030314
 	],
 	//y position max x17
 	[
-	0x030313
+	0x030315
 	],
 	//pilot pointer  ** do not use until second loop
 	[

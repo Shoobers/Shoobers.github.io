@@ -36,6 +36,7 @@ S-CPU bus
 000d80 starts player unit vertical positions, first number is grid, second is sub grid GRAPHIC 				ONLY
 000db0 starts enemy unit vertical positions, first number is grid, second is sub grid GRAPHIC 				ONLY
 000e00 menu and map states, including menu position, camera position, grid limits, and which 				menus to call it feels like.  e00 is what menu to pull e01 refers to which 				template to switch to? 00e3A is menu position regardless of menu.  00ea7 is 				aparently very important for scene transitions.  E20 references color of new 				text?  E01 ?
+000e38 stores text pointer
 000f00 battle and timing things?.  f00 is horizontal movement, f01 is vertical movement.  They're 		also used as a timer in nonbattle  f02-5 are dangerous and unsure what they refer 		to without knowing all the things that can be put in here safely.
 000f10 points to background textures  000f12 is texture effects ( transparancy ) / graphics?
 000f20 pointers ?  For text calls I believe.  Also contains timers for different texture effects.
@@ -80,9 +81,14 @@ S-CPU bus
 001a86 starts player armor and limit ( ceiling for all stats )
 001ab6 starts enemy armor and limit
 001b00 - 001cff unsure, but they are used on the scenario map and may have something to do in regards to menus.
+001e20 - relates to highlighting and color of text
+
 
 ROM
 b432/3 seems to refer to a background layer index?
+
+d000 seems to be cutscene map related UI?
+
 
 0682xx seems to be mostly relating to Scenarios and MS positioning/type/etc.
 
@@ -116,21 +122,23 @@ it then repeats per 4
 This section is odd.  First two bytes will always be WB/Bright ( or whoever should be it's pilot )
 Then it's split into sets of 3 bytes, presumably regarding which pilot / mech goes in that spot as a pointer.  IF PILOT DOES NOT CORRESPOND TO HANGER, NOONE GOES IN THAT SLOT PERIOD.
 
+02e103 points to the below - called whatever is in ram 00B5 to load pictures
+06bd55 loads Face picture for Bright - 56 directly correlates to Bright's internal pointer
+06bd57 is a pointer to text!!
 
 07ba8d unsure why this is 00
 
 07ba8e is where enemy reinforcements are called from for scenario 1
 
 
-
-
 c0b432 breaks everyone's status screen.  Likely has to do with color sor something along those lines in this area.  Changing b434 to 89 made hp bar full red
-
 
 
 I learned the hard way that the above values, while they work in the debugger / memory editor of emulators... the hex values in windows are different somehow.
 
+
 030260 starts enemy scenario 1 info.
+
 
 
 
@@ -430,7 +438,7 @@ Pilot list
 29 Sayaka Yumi
 2a Boss Borot
 2b Tetsuya Tsurugi
-2c Jun Hono
+2c Junz Hono
 2d Koji Kabuto
 2e Jack King
 2f michiru Saotome
@@ -645,6 +653,427 @@ fd Picture slender, name overflow, otherwise stable
 fe cancel menu name overflow, Fraw, status screen unreachable
 ff surprisingly stable, little d name in status screen, Fraw, cancel menu name overflow/map corruption
  
+Assuming 048000 is everyone's sprites - There's a lot of weirdness at lower #s - because this is a pointer to a data bank.  0000-7fff has random / unpredictable results in cutscenes
+048024 Changes face sprite for Bright - ea82 
+Ignore
+0000,1,5-c,f Amuro 0002 Bask 0003 Static 0004 Sharkin 000d Gene 0010-12 Amuro 0013 Zabine 0014 Miharu 0015 Gaia 0016 Karius 0017 Mirai 0018 Kai 0019 Mia 001a Amuro
+Ignore
+I think 048000 is a direct table from the above
+
+00 0000
+01 10c5 ? why?
+02 10d9 ? why?
+03 8182 - Amura safe?
+04 819a - Kamille
+05 81b2 - Judau
+06 ca81
+07 e281
+08 fa81
+09 1282
+0a 2a82 - Benkai
+0b 4282
+0c 5a82
+0d 7282
+0e 8a82
+0f a282
+10 ba82
+11 d282
+12 b281
+13 0283
+14 1a83
+15 3283
+16 4a83 
+17 4b83
+18 6383
+19 6483
+1a 7c83
+1b 9483
+1c ac83
+1d c483
+1e dc83
+1f dd83
+20 f583
+21 0d84
+22 2584
+23 3d84
+24 5584
+25 6d84
+26 8584
+27 9d84
+28 b584
+29 cd84
+2a e584
+2b fd84
+2c 1585
+2d 2d85
+2e 4585
+2f 5d85
+30 7585
+31 8d85
+32 8e85
+33 a685
+34 be85
+35 d685
+36 ee85
+37 0686
+38 1e86
+39 3686
+3a 4e86
+3b 6686
+3c 7e86
+3d 9686
+3e ae86
+3f c686
+40 de86
+41 f686
+42 0e87
+43 2687
+44 3e87
+45 5687
+46 6e87
+47 8687
+48 9e87
+49 b687
+4a ce87
+4b e687
+4c fe87
+4d 1688
+4e 2e88
+4f 4688
+50 5e88
+51 7688
+52 8e88
+53 a688
+54 be88
+55 d688
+56 ee88
+57 0689
+58 1e89
+59 3689
+5a 4e89
+5b 6689
+5c 7e89
+5d 9689
+5e ae89
+5f c689
+60 de89
+61 f689
+62 f789
+63 f889
+64 f989
+65 118a
+66 298a
+67 418a
+68 598a
+69 718a
+6a 898a
+6b a18a
+6c b98a -Conscon
+6d d18a
+6e e98a
+6f 018b
+70 198b
+71 1a8b
+72 328b
+73 4a8b
+74 628b
+75 7a8b
+76 7b8b
+77 938b
+78 ab8b
+79 c38b
+7a db8b
+7b f38b
+7c 0b8c
+7d 238c
+7e 3b8c
+7f 538c
+80 6b8c
+81 838c
+82 9b8c
+83 b38c
+84 cb8c
+85 e38c
+86 fb8c
+87 fc8c
+88 148d
+89 2c8d
+8a 2d8d
+8b 458d
+8c 468d
+8d 478d
+8e 488d
+8f 608d
+90 788d
+91 908d
+92 918d
+93 928d
+94 938d
+95 948d
+96 958d
+97 968d
+98 978d
+99 af8d
+9a c78d -Tokwan
+9b df8d
+9c f78d
+9d 0f8e
+9e 278e
+9f 3f8e
+a0 578e
+a1 588e
+a2 708e -Bioroid
+a3 888e
+a4 a08e
+a5 b88e 
+a6 d08e
+a7 e88e
+a8 008f
+a9 588e - ???Why  It's not chronocle order??
+aa 018f - ???Weird
+ab 028f - ???Weird
+ac 1a8f
+ad 328f - AI FF
+ae 4a8f
+af 628f - Elite Soldier DC
+b0 7a8f - Bioroid
+b1 928f - Kamille?
+b2 aa8f - Explains why Amuro with no name
+b3 aa8f - Explains why Amuro with no name
+b4 aa8f - Explains why Amuro with no name
+b5 aa8f - Explains why Amuro with no name
+b6 aa8f - Explains why Amuro with no name
+b7 aa8f - Explains why Amuro with no name
+b8 aa8f - Explains why Amuro with no name
+b9 aa8f - Explains why Amuro with no name
+ba aa8f - Explains why Amuro with no name
+bb aa8f - Explains why Amuro with no name
+bc aa8f - Explains why Amuro with no name
+bd aa8f - Explains why Amuro with no name
+be aa8f 
+bf aa8f 
+c0 aa8f 
+After this point it's just oddities
+
+30f017 spacing?
+32f80d spacing?
+
+!!338000 stores sentences for text/cutscenes
+
+00 nullspace?
+01 nullspace?
+02 roman numeral III
+03 large lower alpha
+04 large lower beta
+05 large lower upsilon??
+06 small lower gamma
+07 small lower mu
+08 small lower kappa
+09 small lower beta
+0a 2 periods in the middle of the line with a space between (takesup3spaces)
+0b small lower tau?
+0c infinity
+0d heart
+0e percent sign
+0f foward slash
+10 plus
+11 minus
+12 longer dash, towards top
+13 tilde
+14 question mark with space after
+15 exclamnation mark
+** Upper case
+16 A 17 B 18 C 19 D 1a E 1b F 1c G 1d H 1e I 1f J 20 K 21 L 22 M 23 N 23 N 24 O 25 P 26 Q 27 R 28 S 29 T 2a U 2b V 2c W 2d X 2e Y 2F Z
+** The below adds a space after the number
+30 0 31 1 32 2 33 3 34 4 35 5 36 6 37 7 38 8 39 9 
+3a comma
+3b asterik * but large
+3c (
+3d )
+
+These are tightly packed
+3e " no space before or after 
+3f can't tell difference?
+
+
+40 nullspace? When after a letter or number no space - if start of line, creates a single space from border
+41 nullspace? When after a letter or number no space - if start of line, creates a single space from border
+42 nullspace? small space after last symbol
+43 nullspace? slightly larger space after last symbol
+44 nullspace? same as above but a little larger
+45 nullspace? around a letters size of space
+46 nullspace? slightly larger than above
+47 nullspace? slightly larger than above
+48 nullspace? around the same size as above
+49 nullspace? around the same size as above
+4a nullspace? around the same size as above
+4b nullspace? around the same size as above
+4c nullspace? around the same size as above
+4d nullspace? around the same size as above
+4e nullspace? around the same size as above
+4f nullspace? around the same size as above
+50 51 52 53 54 Route A 55 56 B   == This is for the menu to choose between routes a and b
+57 58 Von 59 5a rau 
+5b n with space after it 57-5b is for VonBraun I believe?
+5c 5d Atm (for atmosphere)
+5e open parenthesis with space after
+5f close parenthesis with space after
+60 middle of tile dash
+61 acute accent e
+62 small lower case alpha
+63 small lower case beta
+64 65 66 67 68 remainder of word atmosphere ( 5c 5d 64 65 66 67 68 )
+69 6a 6b 6c 6d 6e 6f Saotome Inst
+70 e with space after
+71 t with space before
+72 : (with space after) - also can be used with 71 to make it more robust
+73 t with space after
+74 th
+75 ou
+76 he
+77 s with space after
+78 ..
+79 in
+7a a with space before
+7b re
+7c ha
+7d at
+7e , with space after
+7f er
+80 I with space before
+81 lower case w with space before ( or lower case psi )
+82 on
+83 o with space after
+84 period with space after
+85 an
+86 d with space after
+87 s with space before
+88 to
+89 n with space after
+8a i with space before
+8b yo
+8c r with space after
+8d ng
+8e y with space after
+8f en
+** lower case, single spaced
+90 a 91 b 92 c 93 d 94 e 95 f 96 g 97 h 98 i 99 j 9a k 9b l 9c m 9d n 9e o 9f p a0 q a1 r a2 s a3 t a4 u a5 v a6 w a7 x a8 y a9 z 
+aa . 
+ab : 
+ac dash
+ad close " - look more like quote marks
+ae close '
+af narrow space ( around size of letter / the next sequence's numbers )
+half tile/narrow numbers
+B0 0 b1 1 b2 2 b3 3 b4 4 b5 5 b6 6 b7 7 b8 8 b9 9
+ba u umlaut
+bb a umlaut
+bc o umlaut
+bd question mark
+be roman numeral II with short space after
+bf roman numeral III same as 02 ??
+c0 c1 Qu with space before and after
+c2 c3 c4 c5 c6 c7 form the word Mysterious together
+c8 F with space before
+c9 o with half of e ( c8 c9 and some other address for Foes )
+ca cb DC with space after
+cc cd ce cf Pursue
+d0 t+half of h with space before
+d1 half of h+e with space after
+Forms the
+d2 D with space before
+d3 C with space before
+combine to DC
+d4 He with half of e
+d5 ead with half of e and d
+d6 half of d with space after
+Forms the word Head
+d7 to
+d8 L with space before
+d9 very small part of l + u + small part of n
+da small part of n + a 
+db I with space before
+dc I with space after 
+start of japanese lettering
+dd phoenician pe ?? or japanese letter
+de
+df
+e1
+e2
+e3 equal sign ( wide )
+e4 japanese period? 
+e5 slightly larger semicolon ( japanese? )
+e6 period in center ( small space before and after )
+e7 +- sign with space after
+e8 upper left corner backet
+e9 lower right corner bracket
+end of japanese lettering
+ea WIDE O for weapon use?
+eb WIDE X for weapon use?
+ec ed block of white with all written in ( weapon )
+ee white circle with b in it 
+ef hollow circle with p in it
+the F line just breaks things overall
+f0 while it outputs something, it does odd stuff
+f1 while it outputs something, it does odd stuff
+f2 while it outputs something, it does odd stuff
+f3 blank line - if more than 1 f3, it adds lines together, if there's 3 f3s, its the same as 1 f3 as it forces the down arrow
+f4 forces down arrow
+f5 absolutely breaks 
+fd tells game to load the next character face sprite in the next byte
+ff I think this tells the game it is done with this text scene and it needs to handle other aspects of the game - though it loads and stores the next letter regardless for some reason?
+
+I believe f4 is needed for the down arrow to apply appropriately followed by fd to tell the game to load a facesprite
+
+Scenario 1 text values - before scenario cutscene only
+Bright: 3381fe
+For some reason only the FIRST sprite is called elsewhere?
+Followup text has their sprite byte in this section
+Ryu(Gundam): 338267 picture, 338268 start of text  
+Kai: 33828f picture, 338290 text
+Ryoma: 3382be picture, 3382bf text
+Bright: 33830c picture, 33830d text
+Hayato(gundam): 33835d picture, 33835e text
+Amuro: 338390 picture, 338391 text
+Fraw:3383c1 picture, 3383c2 text
+Kai: 33840e picture, 33840f text
+Bright: 338428 picture, 338429 text
+
+33844d - ff byte, end scene - 33844e letter K, this corresponds to the next text load called by the game 
+Game I believe now goes to another area of the code to locate the next character and then start text anew - saving the next letter's byte for easy recall
+33844e Scenario 1, first text line from Koji on game map 3384ad FF byte stores byte 3384ae for next letter ( S, for sayaka )
+
+078000 breaks open who gets called next while on maps  
+in particular
+07991d is the transition between Koji and Sayaka
+Looks like 79915 starts this - 6 bytes per person - 5th byte is character are the others related to position or if they should be moving?
+I wish I knew what c0 referred to here, along with the two bytes afterwards.
+ae change focus from previous character to new character
+c8 calls text
+00e8 moves units
+12fb seems to be a pointer to elsewhere in code to move unit
+14fb somehow calls Hyoma's combine sequence
+
+
+
+
+
+07b800 is likely enemy scenario calls during THEIR TURN ONLY
+07ba37 starts text for turn 2 when Denim etc. leave
+07ba38 - Denim
+07ba3c - Slender
+07ba41 - Slender
+07ba48 - Gene
+07ba4d - Gene
+07ba54 - Denim 
+07ba59 - Denim
+07ba5d - Denim to speak
+
+
+
+
+
+3bd800 seems to refer to menu or borders?
 
 Investigate 0x0686e8-0686ff    0x0688
 

@@ -89,36 +89,43 @@ rom is the file
 rng is the seed
 */
 //ally spawns
-function allyRandomize(spoilLog, index, wave, scenAlly, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
+function allyRandomize(spoilLog, indexA, indexB, wave, scenAlly, pilots, mechs, rom, rng, arrgrid, minlevel, maxlevel, maxGridX, maxGridY, minGridX=0, minGridY=0)
 {
 	let v;
 	let newX;
 	let newY;
-	for ( let i = 0; i < index; i+=1)
+	for ( let i = 0; i < indexA; i+=1)
 	{
 		v = pick_rand(pilots, rng);
 		rom[(scenAlly[0][wave]+(i*4))]=v;//pilots
-		if ( i > 0 && i < (index-1) ) {	  // -1 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
-			rom[(scenarioOneAlly[6][wave]+((i-1)*3))]=v;
+		if ( i < (indexB) ) {	  // -1 is due to Ryoma/Hayato/(Musashi/Benkei position) // These three pilots also have to have their setup dealt with elsewhere due to getter transitioning
+			do {
+				newX = rand(minGridX, maxGridX, rng);
+				newY = rand(minGridY, maxGridY, rng);
+			} while ( !(arrgrid[newX][newY] == 1) )
+			arrgrid[newX][newY] = 0;
+			rom[(scenAlly[4][wave]+((i)*3))]=newX; // x position
+			rom[(scenAlly[5][wave]+((i)*3))]=newY; // y position
+			rom[(scenAlly[6][wave]+((i)*3))]=v;
 		}
 		rom[(scenAlly[1][wave]+(i*4))]=rand(minlevel, maxlevel, rng); //level
 		rom[(scenAlly[2][wave]+(i*4))]=pick_rand(mechs, rng); //mechs 
+		spoilLog = pushSpoilAlly(spoilLog, rom, scenAlly, wave, i);
 //		rom[(scenAlly[3][wave]+(i*4))]=Donotchangeyet;
 	}
 //	rom[scenarioOneAlly[4][0]]=rand(minGridX, maxGridX, rng); // x position
 //	rom[scenarioOneAlly[5][0]]=rand(minGridY, maxGridY, rng); // y position
-	for ( let i = 1; i < 10; i+=1)
-	{
-		do {
-			newX = rand(minGridX, maxGridX, rng);
-			newY = rand(minGridY, maxGridY, rng);
-			alert( newX + ' ' + newY + ' ');
-		} while ( !arrgrid[newX][newY] )
-		arrgrid[newX][newY] = 0;
-		rom[(scenAlly[4][0]+((i-1)*3))]=newX; // x position
-		rom[(scenAlly[5][0]+((i-1)*3))]=newY; // y position
+//	for ( let i = 1; i < 9; i+=1)
+//	{
+//		do {
+//			newX = rand(minGridX, maxGridX, rng);
+//			newY = rand(minGridY, maxGridY, rng);
+//		} while ( !arrgrid[newX][newY] )
+//		arrgrid[newX][newY] = 0;
+//		rom[(scenAlly[4][0]+((i-1)*3))]=newX; // x position
+//		rom[(scenAlly[5][0]+((i-1)*3))]=newY; // y position
 //		rom[(scenAlly[6][0]+((i-1)*3))]=rom[scenarioOneAlly[0][0]+i*4];  // I believe I already set it up for the above
-	}
+//	}
 	return [rom, spoilLog, arrgrid];
 }
 
