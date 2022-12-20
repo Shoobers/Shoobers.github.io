@@ -6,15 +6,16 @@ function randomize(rom, rng, opts, log) {
 
 	randSplit[0][0x01ac7e] = 0x80;  // This forces a branch always to occur - before it was a check to see if Bright's mech was b0, b1, b2, or b3, the various carriers of the Londo Bell
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
-	randSplit[2]=setGrid(randSplit[2], 22, 23);
+	randSplit[2]=setGrid(randSplit[2], 23, 23);
 	//scenario 1 'Omen'
+
 	randSplit[2]=setAllyAreaSquare(randSplit[2], 0, 13, 10, 23);
 	randSplit[1]+='\r\nScenario 1 Enemy Spawn\r\n\r\n';
-	randSplit = enemyRandomize(randSplit[1], 16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 3, 13, 1, 6, 22, 23);  // scenario 1 enemy on map spawn
+	randSplit = enemyRandomize(randSplit[1], 16, 0, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 3, 13, 1, 6, 23, 23);  // scenario 1 enemy on map spawn
 	randSplit[1]+='\r\nScenario 1 Enemy Reinforcements\r\n\r\n';
-	randSplit = enemyRandomize(randSplit[1], 5, 1, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 5, 15, 1, 6, 22, 23);  // scenario 1 reinforcements
+	randSplit = enemyRandomize(randSplit[1], 5, 1, scenarioOneEnemy, pilotList, spaceEnemyMechs, randSplit[0], rng, randSplit[2], 5, 15, 1, 6, 23, 23);  // scenario 1 reinforcements
 	randSplit[1]+='\r\nScenario 1 Ally Set Up\r\n\r\n';
-	randSplit = allyRandomize(randSplit[1], 11, 8, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 22, 23);	// scenario 1 ally spawn
+	randSplit = allyRandomize(randSplit[1], 11, 8, 0, scenarioOneAlly, pilotList, spaceAllyMechs, randSplit[0], rng, randSplit[2], 1, 8, 23, 23);	// scenario 1 ally spawn
 	
 	// Bright's original / first positioning can't be modularized in Omen with the other allies due to uncertainty of ally spawning for later scenarios - have not yet found these
 	let newX;

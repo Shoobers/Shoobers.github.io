@@ -43,8 +43,8 @@ let stringMechs = [
 
 function pushSpoilEnemy(log, rom, enemy, wave, i)
 {
-	let pilot = getPilot(rom, enemy, wave, i);
-	let mech = getMech(rom, enemy, wave, i);
+	let pilot = getPilot(rom, enemy, wave, i, 8);
+	let mech = getMech(rom, enemy, wave, i, 8);
 
 	log += 'Position ' + i + ' ' + pilot + ' level ' + rom[(enemy[1][wave]+(i*8))] + ' in ' + mech + ' at position x' + rom[(enemy[4][wave]+(i*8))] + 'y' + rom[(enemy[5][wave]+(i*8))] + ' with ' + rom[(enemy[3][wave]+(i*8))] + ' turns to activate.\r\n';
 	return log;
@@ -52,22 +52,22 @@ function pushSpoilEnemy(log, rom, enemy, wave, i)
 
 function pushSpoilAlly(log, rom, ally, wave, i)
 {
-	let pilot = getPilot(rom, ally, wave, i);
-	let mech = getMech(rom, ally, wave, i);
+	let pilot = getPilot(rom, ally, wave, i, 4);
+	let mech = getMech(rom, ally, wave, i, 4);
 	
-	log += 'Position ' + i + ' ' + pilot + ' level ' + rom[(ally[1][wave]+(i*8))] + ' in ' + mech + ' at position x' + rom[(ally[4][wave]+(i*8))] + 'y' + rom[(ally[5][wave]+(i*8))] + ' with ' + rom[(ally[3][wave]+(i*8))] + ' turns to activate.\r\n';
+	log += 'Position ' + i + ' ' + pilot + ' level ' + rom[(ally[1][wave]+(i*4))] + ' in ' + mech + ' at position x' + rom[(ally[4][wave]+(i*3))] + 'y' + rom[(ally[5][wave]+(i*3))] + '.\r\n';
 	return log;
 };
 
 
-function getPilot( rom, index, wave, i )
+function getPilot( rom, index, wave, i, range )
 {
-	let hexPilot=rom[(index[0][wave]+(i*8))];
+	let hexPilot=rom[(index[0][wave]+(i*range))];
 	return stringPilot[hexPilot];
 };
 
-function getMech( rom, index, wave, i)
+function getMech( rom, index, wave, i, range)
 {
-	let hexMech=rom[(index[2][wave]+(i*8))];
+	let hexMech=rom[(index[2][wave]+(i*range))];
 	return stringMechs[hexMech];
 };
