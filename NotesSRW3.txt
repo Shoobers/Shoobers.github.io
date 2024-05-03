@@ -45,7 +45,7 @@ S-CPU bus
 001008-1010 is current credit count
 0010ed starts pilot level in hanger, not map, this value is used when the pilot levels on map and 		is the more important one.
 00116D starts player pilot exp, used everywhere and important for level randomization for the 		player when its time.
-0011ed starts player mechs IN HANGER ONLY
+0011ee starts player mechs IN HANGER ONLY
 
 
 001300 states what a particular unit can attack?
