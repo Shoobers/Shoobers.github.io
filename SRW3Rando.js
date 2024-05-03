@@ -4,7 +4,8 @@ function randomize(rom, rng, opts, log) {
 	let grid = [];
 	let randSplit = [rom, log, grid];  // randSplit[0] is the rom, randSplit[1] is the spoiler log
 
-	randSplit[0][0x01ac7e] = 0x80;  // This forces a branch always to occur - before it was a check to see if Bright's mech was b0, b1, b2, or b3, the various carriers of the Londo Bell
+// 	Was testing to see the below could be useful.  Sadly it really isn't
+//	randSplit[0][0x01ac7e] = 0x80;  // This forces a branch always to occur - before it was a check to see if Bright's mech was b0, b1, b2, or b3, the various carriers of the Londo Bell
 	randSplit[1]='Start of Spoiler Log+\r\n\r\n';
 	randSplit[2]=setGrid(randSplit[2], 23, 23);
 	//scenario 1 'Omen'
@@ -24,7 +25,7 @@ function randomize(rom, rng, opts, log) {
 		newX = rand(0, 22, rng);
 		newY = rand(0, 23, rng);
 	} while ( !(randSplit[2][newX][newY] == 1)  )
-	randSplit[2][newX][newY] = 0;
+	randSplit[2][newX][newY] = 1;
 	randSplit[0][0x030312]=newX; // x position
 	randSplit[0][0x030313]=newY; // y position
 	// Bright's original / first positioning can't be modularized in Omen with the other allies due to uncertainty of ally spawning for later scenarios - have not yet found these
